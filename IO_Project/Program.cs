@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using DatabaseConnection;
+using DatabaseSupport;
 
 
 namespace IO_Project
@@ -13,7 +13,7 @@ namespace IO_Project
     {
         static void Main(string[] args)
         {
-            Connection myConnection = Connection.Instance;
+            DatabaseConnection myConnection = DatabaseConnection.Instance;
             try
             {
                 myConnection.Connect.Open();

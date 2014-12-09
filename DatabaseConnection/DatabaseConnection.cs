@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace DatabaseConnection
+namespace DatabaseSupport
 {
-    public class Connection
+    public class DatabaseConnection
     {
         private static readonly object syncLock = new object();
 
-        private static Connection instance;
+        private static DatabaseConnection instance;
 
         private SqlConnection connect;
 
@@ -21,7 +21,7 @@ namespace DatabaseConnection
             //set { connect = value; }
         }
 
-        protected Connection()
+        protected DatabaseConnection()
         {
             connect = new SqlConnection("Data Source=(localdb)\\Projects;"
                                             +"Initial Catalog=Database;"
@@ -31,7 +31,7 @@ namespace DatabaseConnection
                                             +"TrustServerCertificate=False");
         }
 
-        public static Connection Instance
+        public static DatabaseConnection Instance
         {
             get
             {
@@ -41,7 +41,7 @@ namespace DatabaseConnection
                     {
                         if (instance == null)
                         {
-                            instance = new Connection();
+                            instance = new DatabaseConnection();
                         }
                     }
                 }
