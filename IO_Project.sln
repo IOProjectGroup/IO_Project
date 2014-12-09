@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO_Project", "IO_Project\IO
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{6112B6F8-F9CB-4147-B079-0AA1DA7C59AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseSupport", "DatabaseConnection\DatabaseSupport.csproj", "{10802340-BDA2-4636-8655-18A02653FF36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseSupport", "DatabaseSupport\DatabaseSupport.csproj", "{10802340-BDA2-4636-8655-18A02653FF36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

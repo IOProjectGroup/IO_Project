@@ -42,7 +42,7 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseConnection\DatabaseSupport.csproj">
+    <ProjectReference Include="..\DatabaseSupport\DatabaseSupport.csproj">
       <Project>{10802340-bda2-4636-8655-18a02653ff36}</Project>
       <Name>DatabaseSupport</Name>
     </ProjectReference>
