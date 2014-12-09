@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Table1]
+﻿CREATE TABLE [dbo].[Ubezpieczenia]
 (
 	[ID_ubezpieczenia] INT NOT NULL PRIMARY KEY, 
     [ID_samochodu] INT NOT NULL, 
