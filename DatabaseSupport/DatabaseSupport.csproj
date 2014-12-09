@@ -7,8 +7,8 @@
     <ProjectGuid>{10802340-BDA2-4636-8655-18A02653FF36}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DatabaseConnection</RootNamespace>
-    <AssemblyName>DatabaseConnection</AssemblyName>
+    <RootNamespace>DatabaseSupport</RootNamespace>
+    <AssemblyName>DatabaseSupport</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseReader.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
