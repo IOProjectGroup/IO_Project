@@ -1,8 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[AddRepairs]
+﻿CREATE PROCEDURE [dbo].[AddInsurance]
 	@nr_rejestracyjny varchar(10),
 	@koszt money,
-	@data_naprawy date,
-	@opis nvarchar(MAX)
+	@data_zakupu date,
+	@data_waznosci date
 AS
 	DECLARE @err_message nvarchar(255)
 	SET NOCOUNT OFF;
@@ -13,7 +13,7 @@ AS
 		END
 	ELSE
 		BEGIN
-			INSERT INTO [dbo].[Naprawy](ID_samochodu,koszt,data_naprawy,opis) 
-			VALUES ((SELECT ID_samochodu from Samochody where Samochody.nr_rejestracyjny = upper(@nr_rejestracyjny)),@koszt,@data_naprawy,@opis)
+			INSERT INTO [dbo].[Ubezpieczenia](ID_samochodu,koszt,data_zakupu,data_waznosci) 
+			VALUES ((SELECT ID_samochodu from Samochody where Samochody.nr_rejestracyjny = upper(@nr_rejestracyjny)),@koszt,@data_zakupu,@data_waznosci)
 		END
 RETURN 0

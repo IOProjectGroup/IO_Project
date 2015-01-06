@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[AddTown]
-	@nazwa varchar(50)
+	@nazwa nvarchar(50)
 AS
 	INSERT INTO [dbo].[Miasta] (nazwa)
-	values (@nazwa);
+	values (lower(@nazwa));
 RETURN 0

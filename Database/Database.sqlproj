@@ -14,7 +14,7 @@
     </RootPath>
     <RootNamespace>Database</RootNamespace>
     <AssemblyName>Database</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -26,6 +26,7 @@
     <PermissionSet>SAFE</PermissionSet>
     <GenerateCreateScript>True</GenerateCreateScript>
     <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <DefaultCollation>SQL_Latin1_General_CP1250_CI_AS</DefaultCollation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -83,6 +84,10 @@
     <Build Include="Functions\AddTown.sql" />
     <Build Include="Functions\AddRepairs.sql" />
     <Build Include="Functions\AddAdditionalCosts.sql" />
+    <Build Include="Functions\AddDriver.sql" />
+    <Build Include="Functions\AddRefuel.sql" />
+    <Build Include="Functions\AddInsurance.sql" />
+    <Build Include="Functions\AddRoute.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />

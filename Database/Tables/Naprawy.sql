@@ -4,6 +4,6 @@
     [ID_samochodu] INT NOT NULL, 
     [koszt] MONEY NULL, 
     [data_naprawy] DATE NULL, 
-    [opis] VARCHAR(MAX) NULL, 
+    [opis] NVARCHAR(MAX) NULL, 
     CONSTRAINT [Naprawy_ID_samochodu] FOREIGN KEY ([ID_samochodu]) REFERENCES [Samochody]([ID_samochodu])
 )

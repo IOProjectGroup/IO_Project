@@ -10,7 +10,7 @@ namespace DatabaseSupport
 {
     public class DatabaseWriter
     {
-        public String addTownToDatabase(String townName)
+        public String AddTownToDatabase(String townName)
         {
             String message = null;
             DatabaseConnection myConnection = DatabaseConnection.Instance;
@@ -49,7 +49,7 @@ namespace DatabaseSupport
             return message;
         }
 
-        public String addCarToDatabase(string brand, string model, double cost, DateTime dateOfProduction, DateTime dateOfPurchase, string registrationNumber)
+        public String AddCarToDatabase(string brand, string model, double cost, DateTime dateOfProduction, DateTime dateOfPurchase, string registrationNumber)
         {
             String message = null;
             DatabaseConnection myConnection = DatabaseConnection.Instance;
@@ -93,7 +93,7 @@ namespace DatabaseSupport
             return message;
         }
 
-        public String addRepairsToDatabase(string registrationNumber, double cost, DateTime dateOfRepair, String specification)
+        public String AddRepairsToDatabase(string registrationNumber, double cost, DateTime dateOfRepair, String specification)
         {
             String message = null;
             DatabaseConnection myConnection = DatabaseConnection.Instance;
@@ -135,7 +135,7 @@ namespace DatabaseSupport
             return message;
         }
 
-        public String addAdditionalCostsToDatabase(string pesel, string registrationNumber, double additionalCost, String specification)
+        public String AddAdditionalCostsToDatabase(string pesel, string registrationNumber, double AdditionalCost, String specification)
         {
             String message = null;
             DatabaseConnection myConnection = DatabaseConnection.Instance;
@@ -156,8 +156,176 @@ namespace DatabaseSupport
                 myCommand.CommandText = "AddAdditionalCosts";
                 myCommand.Parameters.Add(new SqlParameter("pesel", pesel));
                 myCommand.Parameters.Add(new SqlParameter("nr_rejestracyjny", registrationNumber));
-                myCommand.Parameters.Add(new SqlParameter("koszt_dodatkowy", additionalCost));
+                myCommand.Parameters.Add(new SqlParameter("koszt_dodatkowy", AdditionalCost));
                 myCommand.Parameters.Add(new SqlParameter("opis", specification));
+
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                myConnection.Connect.Close();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return message;
+        }
+
+        public String AddDriverToDatabase(string name, string surname, string pesel)
+        {
+            String message = null;
+            DatabaseConnection myConnection = DatabaseConnection.Instance;
+            try
+            {
+                myConnection.Connect.Open();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand();
+                myCommand.Connection = myConnection.Connect;
+                myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                myCommand.CommandText = "AddDriver";
+                myCommand.Parameters.Add(new SqlParameter("imie", name));
+                myCommand.Parameters.Add(new SqlParameter("nazwisko", surname));
+                myCommand.Parameters.Add(new SqlParameter("pesel", pesel));
+
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                myConnection.Connect.Close();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return message;
+        }
+
+        public String AddRefuelToDatabase(string registrationNumber, double cost, double fuel)
+        {
+            String message = null;
+            DatabaseConnection myConnection = DatabaseConnection.Instance;
+            try
+            {
+                myConnection.Connect.Open();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand();
+                myCommand.Connection = myConnection.Connect;
+                myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                myCommand.CommandText = "AddRefuel";
+                myCommand.Parameters.Add(new SqlParameter("nr_rejestracyjny", registrationNumber));
+                myCommand.Parameters.Add(new SqlParameter("koszt", cost));
+                myCommand.Parameters.Add(new SqlParameter("paliwo", fuel));
+
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                myConnection.Connect.Close();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return message;
+        }
+
+        public String AddInsuranceToDatabase(string registrationNumber, double cost, DateTime dateOfPurchase, DateTime dateOfExpiry)
+        {
+            String message = null;
+            DatabaseConnection myConnection = DatabaseConnection.Instance;
+            try
+            {
+                myConnection.Connect.Open();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand();
+                myCommand.Connection = myConnection.Connect;
+                myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                myCommand.CommandText = "AddInsurance";
+                myCommand.Parameters.Add(new SqlParameter("nr_rejestracyjny", registrationNumber));
+                myCommand.Parameters.Add(new SqlParameter("koszt", cost));
+                myCommand.Parameters.Add(new SqlParameter("data_zakupu", dateOfPurchase));
+                myCommand.Parameters.Add(new SqlParameter("data_waznosci", dateOfExpiry));
+
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                myConnection.Connect.Close();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return message;
+        }
+
+        public String AddRouteToDatabase(string pesel, string registrationNumber, double mileageCounterStart, double mileageCounterEnd, String startTown, String endTown)
+        {
+            String message = null;
+            DatabaseConnection myConnection = DatabaseConnection.Instance;
+            try
+            {
+                myConnection.Connect.Open();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand();
+                myCommand.Connection = myConnection.Connect;
+                myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                myCommand.CommandText = "AddRoute";
+                myCommand.Parameters.Add(new SqlParameter("pesel", pesel));
+                myCommand.Parameters.Add(new SqlParameter("nr_rejestracyjny", registrationNumber));
+                myCommand.Parameters.Add(new SqlParameter("stan_licznika_przed", mileageCounterStart));
+                myCommand.Parameters.Add(new SqlParameter("stan_licznika_po", mileageCounterEnd));
+                myCommand.Parameters.Add(new SqlParameter("miasto_poczatkowe", startTown));
+                myCommand.Parameters.Add(new SqlParameter("miasto_koncowe", endTown));
 
                 myCommand.ExecuteNonQuery();
             }
