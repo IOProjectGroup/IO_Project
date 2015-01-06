@@ -1,10 +1,14 @@
 ﻿CREATE TABLE [dbo].[Samochody]
 (
 	[ID_samochodu] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [marka] VARCHAR(10) NULL, 
-    [model] VARCHAR(15) NULL, 
+    [marka] VARCHAR(10) NOT NULL, 
+    [model] VARCHAR(15) NOT NULL, 
     [koszt_zakupu] MONEY NULL, 
     [rok_produkcji] DATE NULL, 
     [rok_zakupu] DATE NULL, 
-    [nr_rejestracyjny] VARCHAR(10) NULL
+    [nr_rejestracyjny] VARCHAR(10) NOT NULL
 )
+
+GO
+
+CREATE UNIQUE INDEX [IX_Samochody_nr_rejestracyjny] ON [dbo].[Samochody] ([nr_rejestracyjny])
