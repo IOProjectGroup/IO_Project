@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Ubezpieczenia]
 (
-	[ID_ubezpieczenia] INT NOT NULL PRIMARY KEY, 
+	[ID_ubezpieczenia] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ID_samochodu] INT NOT NULL, 
     [data_zakupu] DATE NULL, 
     [data_waznosci] DATE NULL, 

@@ -75,9 +75,12 @@
     <Build Include="Tables\Trasy.sql" />
     <Build Include="Tables\Miasta.sql" />
     <Build Include="Tables\Trasy_Miasta.sql" />
-    <Build Include="Views\Display_cars.sql" />
-    <Build Include="Views\Display_drivers.sql" />
-    <Build Include="Views\Show_repairs.sql" />
+    <Build Include="Views\DisplayCars.sql" />
+    <Build Include="Views\DisplayDrivers.sql" />
+    <Build Include="Views\DisplayRepairs.sql" />
+    <Build Include="Functions\AddCars.sql" />
+    <Build Include="Functions\GetCarsFromDatabase.sql" />
+    <Build Include="Functions\AddTown.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />

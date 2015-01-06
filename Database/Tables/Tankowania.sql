@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Tankowania]
 (
-	[ID_tankowania] INT NOT NULL PRIMARY KEY, 
+	[ID_tankowania] INT NOT NULL PRIMARY KEY IDENTITY, 
     [koszt] MONEY NULL, 
     [paliwo] FLOAT NULL, 
     [ID_samochodu] INT NOT NULL, 

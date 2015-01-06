@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Dodatkowe_koszty]
 (
-	[ID_kosztu] INT NOT NULL PRIMARY KEY, 
+	[ID_kosztu] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ID_kierowcy] INT NOT NULL, 
     [ID_samochodu] INT NOT NULL, 
     [koszt_dodatkowy] MONEY NULL, 

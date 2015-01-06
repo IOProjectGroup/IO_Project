@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DatabaseReader.cs" />
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="DatabaseWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
