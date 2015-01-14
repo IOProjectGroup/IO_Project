@@ -49,6 +49,31 @@ namespace DatabaseSupport
             }
         }
         
-
+        public string OpenConnection()
+        {
+            String message = null;
+            try
+            {
+                this.Connect.Open();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return message;
+        }
+        public string CloseConnection()
+        {
+            String message = null;
+            try
+            {
+                this.Connect.Close();
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return message;
+        }
     }
 }

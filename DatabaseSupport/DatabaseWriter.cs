@@ -12,16 +12,9 @@ namespace DatabaseSupport
     {
         public String AddTownToDatabase(String townName)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -35,32 +28,18 @@ namespace DatabaseSupport
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
 
         public String AddCarToDatabase(string brand, string model, double cost, DateTime dateOfProduction, DateTime dateOfPurchase, string registrationNumber)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -79,32 +58,18 @@ namespace DatabaseSupport
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
 
         public String AddRepairsToDatabase(string registrationNumber, double cost, DateTime dateOfRepair, String specification)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -121,32 +86,18 @@ namespace DatabaseSupport
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
 
-        public String AddAdditionalCostsToDatabase(string pesel, string registrationNumber, double AdditionalCost, String specification)
+        public String AddAdditionalCostsToDatabase(string pesel, string registrationNumber, double additionalCost, String specification)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -156,39 +107,25 @@ namespace DatabaseSupport
                 myCommand.CommandText = "AddAdditionalCosts";
                 myCommand.Parameters.Add(new SqlParameter("pesel", pesel));
                 myCommand.Parameters.Add(new SqlParameter("nr_rejestracyjny", registrationNumber));
-                myCommand.Parameters.Add(new SqlParameter("koszt_dodatkowy", AdditionalCost));
+                myCommand.Parameters.Add(new SqlParameter("koszt_dodatkowy", additionalCost));
                 myCommand.Parameters.Add(new SqlParameter("opis", specification));
 
                 myCommand.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
 
         public String AddDriverToDatabase(string name, string surname, string pesel)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -204,32 +141,18 @@ namespace DatabaseSupport
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
 
         public String AddRefuelToDatabase(string registrationNumber, double cost, double fuel)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -245,32 +168,18 @@ namespace DatabaseSupport
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
 
         public String AddInsuranceToDatabase(string registrationNumber, double cost, DateTime dateOfPurchase, DateTime dateOfExpiry)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -287,32 +196,18 @@ namespace DatabaseSupport
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
 
         public String AddRouteToDatabase(string pesel, string registrationNumber, double mileageCounterStart, double mileageCounterEnd, String startTown, String endTown)
         {
-            String message = null;
+            String message = "";
             DatabaseConnection myConnection = DatabaseConnection.Instance;
-            try
-            {
-                myConnection.Connect.Open();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.OpenConnection();
 
             try
             {
@@ -331,17 +226,10 @@ namespace DatabaseSupport
             }
             catch (Exception e)
             {
-                message = e.Message;
+                message += e.Message;
             }
 
-            try
-            {
-                myConnection.Connect.Close();
-            }
-            catch (Exception e)
-            {
-                message = e.Message;
-            }
+            message += myConnection.CloseConnection();
             return message;
         }
     }
