@@ -14,18 +14,16 @@ namespace IO_Project
     {
         static void Main(string[] args)
         {
-            //DatabaseWriter writer = new DatabaseWriter();
-            //Console.WriteLine(writer.AddDriverToDatabase("Michał", "Gołąb", "91010515375"));
-            //Console.WriteLine(writer.AddCarToDatabase("Audi", "A3", 35000, DateTime.Now, DateTime.Now, "Kr-0000p"));
-            //Console.WriteLine(writer.AddRefuelToDatabase("kR-0000P", 100, 15));
-            //Console.WriteLine(writer.AddAdditionalCostsToDatabase("91010515477","Kr-0000P",1200,"mandat"));
-            //Console.WriteLine(writer.AddInsuranceToDatabase("Kr-0000p", 1500, DateTime.Now, DateTime.Now));
-            //Console.WriteLine(writer.AddRepairsToDatabase("Kr-0000p", 1500, DateTime.Now, "sprzęgło"));
-            //Console.WriteLine(writer.AddRouteToDatabase("91010515477", "KR-0000P", 1200, 1459, "Kraków", "PoZnań"));
-            //Console.WriteLine(writer.AddRouteToDatabase("91010515477", "KR-0000P", 1685, 1847, "kraków", "warSzawa"));
+            DatabaseWriter writer = new DatabaseWriter();
+
+            Drivers loDrivers = new Drivers { FirstName = "John", LastName = "Doe", Pesel = "12345678911" };
+
+            Cars car = new Cars { Brand="Audi",Model="A3", Cost=35000, DateOfProduction=DateTime.Now.Date, DateOfPurchase=DateTime.Now.Date,RegistrationNumber="KR-0000P"};
+            
+            //Console.WriteLine(writer.AddToDatabase(car));  
 
             DatabaseReader reader = new DatabaseReader();
-            IList<Drivers> list = reader.GetListOfDrivers();
+            IList<Cars> list = reader.GetListOf<Cars>();
 
             if (list != null)
             {
@@ -36,7 +34,7 @@ namespace IO_Project
             }
             
 
-            Console.WriteLine("end");
+            Console.WriteLine("end of the program".FullyCapitalize());
             Console.ReadLine();
         }
     }

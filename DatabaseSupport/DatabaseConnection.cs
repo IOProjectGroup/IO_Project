@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Cfg;
-using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace DatabaseSupport
 {
@@ -52,6 +52,7 @@ namespace DatabaseSupport
                 mySession = mySessionFactory.OpenSession();
             }
 
+            mySession.Clear();
             return mySession;
         }
         public void CloseConnection()
@@ -63,6 +64,7 @@ namespace DatabaseSupport
             }
 
             mySession.Close();
+            mySession = null;
         }
         public void CloseSessionFactory()
         {

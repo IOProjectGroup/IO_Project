@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseSupport.TableClasses
 {
-    class Cars
+    public class Cars : TableClass
     {
         private int id_car;
 
@@ -20,42 +19,47 @@ namespace DatabaseSupport.TableClasses
         public virtual string Brand
         {
             get { return brand; }
-            set { brand = value; }
+            set { brand = value.FullyCapitalize(); }
         }
         private string model;
 
         public virtual string Model
         {
             get { return model; }
-            set { model = value; }
+            set { model = value.FullyCapitalize(); }
         }
-        private double cost;
+        private decimal cost;
 
-        public virtual double Cost
+        public virtual decimal Cost
         {
             get { return cost; }
             set { cost = value; }
         }
-        private string registrationNumber;
-
-        public virtual string RegistrationNumber
-        {
-            get { return registrationNumber; }
-            set { registrationNumber = value; }
-        }
         private DateTime dateOfProduction;
 
-        public DateTime DateOfProduction
+        public virtual DateTime DateOfProduction
         {
             get { return dateOfProduction; }
             set { dateOfProduction = value; }
         }
         private DateTime dateOfPurchase;
 
-        public DateTime DateOfPurchase
+        public virtual DateTime DateOfPurchase
         {
             get { return dateOfPurchase; }
             set { dateOfPurchase = value; }
+        }
+        private string registrationNumber;
+
+        public virtual string RegistrationNumber
+        {
+            get { return registrationNumber; }
+            set { registrationNumber = value.ToUpper(); }
+        }
+
+        public override string ToString()
+        {
+            return String.Format("Marka: {0,5}, Model: {1,5}, Numer rejestracyjny: {2,5}",Brand,Model,RegistrationNumber);
         }
     }
 }

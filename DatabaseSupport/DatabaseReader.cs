@@ -12,18 +12,18 @@ namespace DatabaseSupport
 {
     public class DatabaseReader
     {
-        public IList<Drivers> GetListOfDrivers()
+        public IList<T> GetListOf<T>() where T : TableClass
         {
             DatabaseConnection myConnection = DatabaseConnection.Instance;
 
             ISession mySession = myConnection.OpenConnection();
 
-            IList<Drivers> list = null;
+            IList<T> list = null;
 
             using (mySession.BeginTransaction())
             {
-                ICriteria criteria = mySession.CreateCriteria<Drivers>();
-                list = criteria.List<Drivers>();
+                ICriteria criteria = mySession.CreateCriteria<T>();
+                list = criteria.List<T>();
 
                 mySession.Transaction.Commit();
             }

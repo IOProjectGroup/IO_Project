@@ -9,7 +9,7 @@
     </id>
     <property name="FirstName" />
     <property name="LastName" />
-    <property name="Pesel" />
+	<property name="Pesel" />
   </class>
 
 </hibernate-mapping>

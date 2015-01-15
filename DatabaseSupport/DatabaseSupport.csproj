@@ -37,6 +37,7 @@
       <HintPath>..\NHibernate-4.0.2.GA-bin\Required_Bins\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +51,7 @@
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtension.cs" />
     <Compile Include="TableClasses\AdditionalCosts.cs" />
     <Compile Include="TableClasses\Cars.cs" />
     <Compile Include="TableClasses\Drivers.cs" />
@@ -58,34 +60,14 @@
     <Compile Include="TableClasses\Repairs.cs" />
     <Compile Include="TableClasses\Routes.cs" />
     <Compile Include="TableClasses\RoutesToTowns.cs" />
+    <Compile Include="TableClasses\TableClass.cs" />
     <Compile Include="TableClasses\Towns.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\AdditionalCosts.hbm.xml" />
+    <EmbeddedResource Include="TableClasses\Drivers.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\Cars.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\Insurance.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\Refuels.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\Repairs.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\Routes.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\Towns.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\RoutesToTowns.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Mappings\Drivers.hbm.xml" />
+    <EmbeddedResource Include="TableClasses\Cars.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
