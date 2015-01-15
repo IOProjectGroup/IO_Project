@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Cfg;
-using DatabaseSupport;
 
-namespace DatabaseSupport
+namespace NHibernateTutorialPart1
 {
     public class DatabaseConnection
     {
@@ -23,7 +22,6 @@ namespace DatabaseSupport
         {
             myConfiguration = new Configuration();
             myConfiguration.Configure();
-            myConfiguration.AddAssembly(typeof(Drivers).Assembly);
             mySessionFactory = myConfiguration.BuildSessionFactory();
         }
 

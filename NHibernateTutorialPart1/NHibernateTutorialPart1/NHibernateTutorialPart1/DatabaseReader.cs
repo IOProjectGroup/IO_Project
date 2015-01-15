@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Cfg;
-using DatabaseSupport.TableClasses;
-using DatabaseSupport;
+using NHibernateTutorialPart1.Model;
 
-namespace DatabaseSupport
+namespace NHibernateTutorialPart1
 {
     public class DatabaseReader
     {

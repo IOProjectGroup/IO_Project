@@ -25,7 +25,7 @@ namespace IO_Project
             //Console.WriteLine(writer.AddRouteToDatabase("91010515477", "KR-0000P", 1685, 1847, "kraków", "warSzawa"));
 
             DatabaseReader reader = new DatabaseReader();
-            List<DriverClass> list = reader.GetListOfDrivers();
+            IList<Drivers> list = reader.GetListOfDrivers();
 
             if (list != null)
             {

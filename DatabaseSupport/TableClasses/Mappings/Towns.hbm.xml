@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DatabaseSupport"
+                   namespace="DatabaseSupport.TableClasses">
+
+  <class name="Towns">
+    <id name="ID_town" column="ID_town">
+      <generator class="identity"/>
+    </id>
+    <property name="TownName" />
+  </class>
+
+</hibernate-mapping>
