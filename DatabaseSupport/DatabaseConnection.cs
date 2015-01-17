@@ -23,7 +23,7 @@ namespace DatabaseSupport
         {
             myConfiguration = new Configuration();
             myConfiguration.Configure();
-            myConfiguration.AddAssembly(typeof(Drivers).Assembly);
+            myConfiguration.AddAssembly("DatabaseSupport");
             mySessionFactory = myConfiguration.BuildSessionFactory();
         }
 

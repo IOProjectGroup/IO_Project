@@ -37,7 +37,6 @@
       <HintPath>..\NHibernate-4.0.2.GA-bin\Required_Bins\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -59,15 +58,48 @@
     <Compile Include="TableClasses\Refuels.cs" />
     <Compile Include="TableClasses\Repairs.cs" />
     <Compile Include="TableClasses\Routes.cs" />
-    <Compile Include="TableClasses\RoutesToTowns.cs" />
     <Compile Include="TableClasses\TableClass.cs" />
     <Compile Include="TableClasses\Towns.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Drivers.hbm.xml" />
+    <EmbeddedResource Include="TableClasses\Drivers.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TableClasses\Cars.hbm.xml" />
+    <EmbeddedResource Include="TableClasses\Cars.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TableClasses\Insurance.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TableClasses\Refuels.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TableClasses\Repairs.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TableClasses\AdditionalCosts.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TableClasses\Routes.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TableClasses\Towns.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

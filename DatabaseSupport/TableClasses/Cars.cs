@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DatabaseSupport.TableClasses
 {
-    public class Cars : TableClass
+    public class Cars
     {
         private int id_car;
 
@@ -57,9 +57,58 @@ namespace DatabaseSupport.TableClasses
             set { registrationNumber = value.ToUpper(); }
         }
 
+        private IList<Insurance> insurance = new List<Insurance>();
+
+        public virtual IList<Insurance> Insurance
+        {
+            get { return insurance; }
+            set { insurance = value; }
+        }
+
+        private IList<Refuels> refuels = new List<Refuels>();
+
+        public virtual IList<Refuels> Refuels
+        {
+            get { return refuels; }
+            set { refuels = value; }
+        }
+
+        private IList<Repairs> repairs = new List<Repairs>();
+
+        public virtual IList<Repairs> Repairs
+        {
+            get { return repairs; }
+            set { repairs = value; }
+        }
+
+        private IList<AdditionalCosts> additionalCosts = new List<AdditionalCosts>();
+
+        public virtual IList<AdditionalCosts> AdditionalCosts
+        {
+            get { return additionalCosts; }
+            set { additionalCosts = value; }
+        }
+        private IList<Routes> routes = new List<Routes>();
+
+        public virtual IList<Routes> Routes
+        {
+            get { return routes; }
+            set { routes = value; }
+        }
+
         public override string ToString()
         {
             return String.Format("Marka: {0,5}, Model: {1,5}, Numer rejestracyjny: {2,5}",Brand,Model,RegistrationNumber);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj.GetHashCode().Equals(this.GetHashCode());
+        }
+
+        public override int GetHashCode()
+        {
+            return this.registrationNumber.GetHashCode();
         }
     }
 }

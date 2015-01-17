@@ -6,7 +6,7 @@ using DatabaseSupport;
 
 namespace DatabaseSupport.TableClasses
 {
-    public class Drivers : TableClass
+    public class Drivers
     {
         private int id_driver;
         public virtual int ID_driver
@@ -32,9 +32,34 @@ namespace DatabaseSupport.TableClasses
             get { return pesel; }
             set { pesel = value; }
         }
+        private IList<AdditionalCosts> additionalCosts = new List<AdditionalCosts>();
+
+        public virtual IList<AdditionalCosts> AdditionalCosts
+        {
+            get { return additionalCosts; }
+            set { additionalCosts = value; }
+        }
+        private IList<Routes> routes = new List<Routes>();
+
+        public virtual IList<Routes> Routes
+        {
+            get { return routes; }
+            set { routes = value; }
+        }
+
+
         public override string ToString()
         {
             return String.Format("Imie: {0,5}, Nazwisko: {1,5}, Pesel: {2,5}",FirstName,LastName,Pesel);
+        }
+        public override bool Equals(object obj)
+        {
+            return obj.GetHashCode().Equals(this.GetHashCode());
+        }
+
+        public override int GetHashCode()
+        {
+            return this.pesel.GetHashCode();
         }
     }
 }

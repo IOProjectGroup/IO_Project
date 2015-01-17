@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Refuel]
+﻿CREATE TABLE [dbo].[Refuels]
 (
 	[ID_refuel] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ID_car] INT NOT NULL, 

@@ -6,21 +6,14 @@ using System.Threading.Tasks;
 
 namespace DatabaseSupport.TableClasses
 {
-    class Insurance
+    public class Insurance
     {
         private int id_insurance;
 
-        public int ID_insurance
+        public virtual int ID_insurance
         {
             get { return id_insurance; }
             set { id_insurance = value; }
-        }
-        private int id_car;
-
-        public int ID_car
-        {
-            get { return id_car; }
-            set { id_car = value; }
         }
         private double cost;
 
@@ -42,6 +35,13 @@ namespace DatabaseSupport.TableClasses
         {
             get { return dateOfExpiry; }
             set { dateOfExpiry = value; }
+        }
+        private Cars cars;
+
+        public virtual Cars Cars
+        {
+            get { return cars; }
+            set { cars = value; }
         }
     }
 }

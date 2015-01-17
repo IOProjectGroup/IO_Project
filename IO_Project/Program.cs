@@ -16,14 +16,26 @@ namespace IO_Project
         {
             DatabaseWriter writer = new DatabaseWriter();
 
-            Drivers loDrivers = new Drivers { FirstName = "John", LastName = "Doe", Pesel = "12345678911" };
-
-            Cars car = new Cars { Brand="Audi",Model="A3", Cost=35000, DateOfProduction=DateTime.Now.Date, DateOfPurchase=DateTime.Now.Date,RegistrationNumber="KR-0000P"};
-            
-            //Console.WriteLine(writer.AddToDatabase(car));  
-
             DatabaseReader reader = new DatabaseReader();
+
+            Drivers driver = new Drivers { FirstName = "John", LastName = "Doe", Pesel = "12345678911" };
+
+            Cars car = new Cars { RegistrationNumber = "KR-0250P" };
+
+            car = reader.GetCar(car);
+            driver = reader.GetDriver(driver);
+
+            Insurance ins = new Insurance { Cost = 1250, DateOfExpiry = DateTime.Now.Date, DateOfPurchase = DateTime.Now.Date, Cars = car };
+            Refuels refuel = new Refuels { Cost = 200, Fuel = 27, Cars = car };
+            Repairs repair = new Repairs { Cost = 1500, DateOfRepair = DateTime.Now.Date, Specification = "Naprawa sprzęgła i wymiana oleju", Cars = car };
+            AdditionalCosts cost = new AdditionalCosts { Cost=500, Specification="mandat za prędkość", Cars=car, Drivers=driver};
+
+            //Console.WriteLine(writer.AddToDatabase(cost));  
+
+
+            //IList<Insurance> list = reader.GetListOf<Insurance>();
             IList<Cars> list = reader.GetListOf<Cars>();
+            //IList<Drivers> list = reader.GetListOf<Drivers>();
 
             if (list != null)
             {
@@ -32,7 +44,7 @@ namespace IO_Project
                     Console.WriteLine(item.ToString());
                 }
             }
-            
+
 
             Console.WriteLine("end of the program".FullyCapitalize());
             Console.ReadLine();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseSupport.TableClasses
 {
-    class Refuels
+    public class Refuels
     {
         private int id_refuel;
 
@@ -14,13 +14,6 @@ namespace DatabaseSupport.TableClasses
         {
             get { return id_refuel; }
             set { id_refuel = value; }
-        }
-        private int id_car;
-
-        public virtual int ID_car
-        {
-            get { return id_car; }
-            set { id_car = value; }
         }
         private double cost;
 
@@ -35,6 +28,13 @@ namespace DatabaseSupport.TableClasses
         {
             get { return fuel; }
             set { fuel = value; }
+        }
+        private Cars cars;
+
+        public virtual Cars Cars
+        {
+            get { return cars; }
+            set { cars = value; }
         }
     }
 }

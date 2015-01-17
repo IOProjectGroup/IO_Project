@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseSupport.TableClasses
 {
-    class AdditionalCosts
+    public class AdditionalCosts
     {
         private int id_cost;
 
@@ -16,33 +16,34 @@ namespace DatabaseSupport.TableClasses
             set { id_cost = value; }
         }
 
-        private int id_driver;
-
-        public int ID_driver
-        {
-            get { return id_driver; }
-            set { id_driver = value; }
-        }
-        private int id_car;
-
-        public int ID_car
-        {
-            get { return id_car; }
-            set { id_car = value; }
-        }
         private double cost;
 
-        public double Cost
+        public virtual double Cost
         {
             get { return cost; }
             set { cost = value; }
         }
         private string specification;
 
-        public string Specification
+        public virtual string Specification
         {
             get { return specification; }
             set { specification = value; }
+        }
+
+        private Cars cars;
+
+        public virtual Cars Cars
+        {
+            get { return cars; }
+            set { cars = value; }
+        }
+        private Drivers drivers;
+
+        public virtual Drivers Drivers
+        {
+            get { return drivers; }
+            set { drivers = value; }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseSupport.TableClasses
 {
-    class Towns
+    public class Towns
     {
         private int id_town;
 
@@ -21,6 +21,13 @@ namespace DatabaseSupport.TableClasses
         {
             get { return townName; }
             set { townName = value; }
+        }
+        private IList<Routes> routes = new List<Routes>();
+
+        public virtual IList<Routes> Routes
+        {
+            get { return routes; }
+            set { routes = value; }
         }
     }
 }

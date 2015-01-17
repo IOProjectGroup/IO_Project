@@ -20,7 +20,25 @@ namespace DatabaseSupport
 
         public static string Capitalize(this string value)
         {
-            return value.Substring(0, 1).ToUpper() + value.Substring(1, value.Length - 1).ToLower();
+            string output = "";
+            try
+            {
+                output += value.Substring(0, 1).ToUpper();
+            }
+            catch (Exception)
+            {
+                output += value.ToUpper();
+                return output;
+            }
+
+            try
+            {
+                output += value.Substring(1, value.Length - 1).ToLower();
+            }
+            catch (Exception)
+            {
+            }
+            return output;
         }
     }
 }

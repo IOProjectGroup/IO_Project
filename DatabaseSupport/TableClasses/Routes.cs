@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseSupport.TableClasses
 {
-    class Routes
+    public class Routes
     {
         private int id_route;
 
@@ -14,20 +14,6 @@ namespace DatabaseSupport.TableClasses
         {
             get { return id_route; }
             set { id_route = value; }
-        }
-        private int id_driver;
-
-        public virtual int ID_driver
-        {
-            get { return id_driver; }
-            set { id_driver = value; }
-        }
-        private int id_car;
-
-        public virtual int ID_car
-        {
-            get { return id_car; }
-            set { id_car = value; }
         }
         private double mileageCounterStart;
 
@@ -42,6 +28,29 @@ namespace DatabaseSupport.TableClasses
         {
             get { return mileageCounterEnd; }
             set { mileageCounterEnd = value; }
-        } 
+        }
+
+        private Cars cars;
+
+        public virtual Cars Cars
+        {
+            get { return cars; }
+            set { cars = value; }
+        }
+        private Drivers drivers;
+
+        public virtual Drivers Drivers
+        {
+            get { return drivers; }
+            set { drivers = value; }
+        }
+
+        private IList<Towns> towns = new List<Towns>();
+
+        public virtual IList<Towns> Towns
+        {
+            get { return towns; }
+            set { towns = value; }
+        }
     }
 }

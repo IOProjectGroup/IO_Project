@@ -12,7 +12,7 @@ namespace DatabaseSupport
 {
     public class DatabaseReader
     {
-        public IList<T> GetListOf<T>() where T : TableClass
+        public IList<T> GetListOf<T>()
         {
             DatabaseConnection myConnection = DatabaseConnection.Instance;
 
@@ -22,7 +22,7 @@ namespace DatabaseSupport
 
             using (mySession.BeginTransaction())
             {
-                ICriteria criteria = mySession.CreateCriteria<T>();
+                ICriteria criteria = mySession.CreateCriteria(typeof(T));
                 list = criteria.List<T>();
 
                 mySession.Transaction.Commit();
@@ -31,6 +31,16 @@ namespace DatabaseSupport
             myConnection.CloseConnection();
 
             return list;
+        }
+
+        public Cars GetCar(Cars input)
+        {
+            return this.GetListOf<Cars>().Where<Cars>(c => c.Equals(input)).First<Cars>();
+        }
+
+        public Drivers GetDriver(Drivers input)
+        {
+            return this.GetListOf<Drivers>().Where<Drivers>(c => c.Equals(input)).First<Drivers>();
         }
     }
 }

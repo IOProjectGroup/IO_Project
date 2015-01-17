@@ -9,7 +9,15 @@
     </id>
     <property name="FirstName" />
     <property name="LastName" />
-	<property name="Pesel" />
+    <property name="Pesel" />
+    <bag name="AdditionalCosts" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_driver" />
+      <one-to-many class="AdditionalCosts" />
+    </bag>
+    <bag name="Routes" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_route" />
+      <one-to-many class="Routes" />
+    </bag>
   </class>
 
 </hibernate-mapping>

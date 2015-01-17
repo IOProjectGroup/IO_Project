@@ -21,7 +21,7 @@ namespace DatabaseSupport
             {
                 try
                 {
-                    mySession.Save(tableClass);
+                    mySession.SaveOrUpdate(tableClass);
                 }
                 catch (Exception e)
                 {
