@@ -3,9 +3,10 @@
                    assembly="DatabaseSupport"
                    namespace="DatabaseSupport.TableClasses">
 
-  <class name="Drivers">
-    <id name="ID_driver" column="ID_driver">
-      <generator class="identity"/>
+  <class name="DatabaseSupport.TableClasses.Drivers" lazy="false" table="Drivers">
+    <id name="ID_driver">
+      <column name="ID_driver" />
+      <generator class="native"/>
     </id>
     <property name="FirstName" />
     <property name="LastName" />

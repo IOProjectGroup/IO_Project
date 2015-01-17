@@ -103,7 +103,8 @@ namespace DatabaseSupport.TableClasses
 
         public override bool Equals(object obj)
         {
-            return obj.GetHashCode().Equals(this.GetHashCode());
+            Cars car = (Cars)obj;
+            return this.registrationNumber.Equals(car.registrationNumber);
         }
 
         public override int GetHashCode()

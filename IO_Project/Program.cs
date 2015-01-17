@@ -22,7 +22,7 @@ namespace IO_Project
 
             Cars car = new Cars { RegistrationNumber = "KR-0250P" };
 
-            car = reader.GetCar(car);
+            //car = reader.GetCar(car);
             driver = reader.GetDriver(driver);
 
             Insurance ins = new Insurance { Cost = 1250, DateOfExpiry = DateTime.Now.Date, DateOfPurchase = DateTime.Now.Date, Cars = car };
@@ -36,6 +36,7 @@ namespace IO_Project
             //IList<Insurance> list = reader.GetListOf<Insurance>();
             IList<Cars> list = reader.GetListOf<Cars>();
             //IList<Drivers> list = reader.GetListOf<Drivers>();
+            //IList<AdditionalCosts> list = reader.GetListOf<AdditionalCosts>();
 
             if (list != null)
             {
@@ -44,7 +45,6 @@ namespace IO_Project
                     Console.WriteLine(item.ToString());
                 }
             }
-
 
             Console.WriteLine("end of the program".FullyCapitalize());
             Console.ReadLine();

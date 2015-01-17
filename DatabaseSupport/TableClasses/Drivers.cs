@@ -54,7 +54,8 @@ namespace DatabaseSupport.TableClasses
         }
         public override bool Equals(object obj)
         {
-            return obj.GetHashCode().Equals(this.GetHashCode());
+            Drivers driver = (Drivers)obj;
+            return this.pesel.Equals(driver.pesel);
         }
 
         public override int GetHashCode()

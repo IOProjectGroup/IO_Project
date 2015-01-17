@@ -10,6 +10,7 @@ namespace DatabaseSupport
     {
         public static string FullyCapitalize(this string value)
         {
+            value = value.Replace("  ", " ");
             string output = "";
             foreach (var item in value.Split(' '))
             {
@@ -20,6 +21,7 @@ namespace DatabaseSupport
 
         public static string Capitalize(this string value)
         {
+            value = value.Replace("  ", " ");
             string output = "";
             try
             {
