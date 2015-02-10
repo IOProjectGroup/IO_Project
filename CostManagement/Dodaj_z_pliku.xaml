@@ -3,20 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Dodaj" Height="200" Width="500">
     <StackPanel Orientation="Vertical" Background="#FFF4F5F7">
-        
-        
-        
+
         <TextBlock Text="Wybierz plik :" Background="#FFE4F141"  Padding="30,5,5,5" />
-        
+
         <StackPanel Orientation="Horizontal">
-            <TextBox Height="25"   Name="FileNameTextBox" Width="350" Margin="10,30,0,30"  />
+            <TextBox Height="25" Name="FileNameTextBox" Width="350" Margin="10,30,0,30"  />
             <Button Content="Przeglądaj" Height="27"  Width="80" Margin="20,30,0,30" Click="button1_Click" />
         </StackPanel>
-        
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"   >
             <Button Content="Dodaj do bazy" Height="25" Width="100" Click="Button_Click" />
             <Button Content="Anuluj" Height="25" Width="100" Margin="30,0,0,0" Click="Button_Click_1"/>
         </StackPanel>
-        
+
     </StackPanel>
 </Window>

@@ -50,9 +50,7 @@
                     </MenuItem>
                 </Menu>
                 <DataGrid x:Name="dg_kierowcy" Height="285"   Margin="0,0,-8,0">
-                    <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="zaznacz" IsThreeState="True" Binding="{Binding OnlineOrderFlag}" />
-                    </DataGrid.Columns>
+
                 </DataGrid>
                 <Menu Height="28" FontSize="13" Background="#FF6C6C6C">
                     <MenuItem Header="_SAMOCHODY" Margin="5,2,0,0" Foreground="#FFFFFDFD">
@@ -65,9 +63,7 @@
                     </MenuItem>
                 </Menu>
                 <DataGrid x:Name="dg_samochody" Height="285"   Margin="0,0,-8,0">
-                    <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="zaznacz" IsThreeState="True" Binding="{Binding OnlineOrderFlag}" />
-                    </DataGrid.Columns>
+
                 </DataGrid>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="59" Background="#FFE4F141" >

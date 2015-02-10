@@ -25,6 +25,9 @@ namespace CostManagement
         public MainWindow()
         {
             InitializeComponent();
+            DatabaseReader myReader = new DatabaseReader();
+            //dg_samochody.ItemsSource = myReader.GetListOf<Cars>();
+            //dg_kierowcy.ItemsSource = myReader.GetListOf<Drivers>();
         }
 
         private void AddDriverFromExcelFile(object sender, RoutedEventArgs e)

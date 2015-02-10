@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DatabaseSupport;
 using DatabaseSupport.TableClasses;
+using ExcelSupport;
 
 namespace CostManagement
 {
@@ -21,18 +22,12 @@ namespace CostManagement
     /// </summary>
     public partial class Dodaj_z_pliku : Window
     {
-        string choice = null;
+        Object obj = null;
+
         public Dodaj_z_pliku(Object obj)
         {
             InitializeComponent();
-            if(obj is Drivers)
-            {
-                choice = "d";
-            }
-            else if(obj is Cars)
-            {
-                choice = "c";
-            }
+            this.obj = obj;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -56,7 +51,14 @@ namespace CostManagement
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            String path = FileNameTextBox.Text;
 
+            ExcelReader myReader = new ExcelReader(path); 
+
+            if(obj is Drivers)
+            {
+
+            }
         }
         
         private void Button_Click_1(object sender, RoutedEventArgs e)
