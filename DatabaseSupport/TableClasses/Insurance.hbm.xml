@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DatabaseSupport"
+                   namespace="DatabaseSupport.TableClasses">
+
+  <class name="DatabaseSupport.TableClasses.Insurance" lazy="false" table="Insurance">
+    <id name="ID_insurance" column="ID_insurance">
+      <generator class="identity"/>
+    </id>
+    <property name="DateOfPurchase" />
+    <property name="DateOfExpiry" />
+    <property name="Cost" />
+    <many-to-one name="Cars" 
+                 class="Cars" 
+                 column="ID_car"
+                 cascade="all">
+    </many-to-one>
+  </class>
+
+</hibernate-mapping>

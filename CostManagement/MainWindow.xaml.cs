@@ -27,9 +27,8 @@ namespace CostManagement
 
         private void AddDriverFromExcelFile(object sender, RoutedEventArgs e)
         {
-            Dodaj_z_pliku dod1 = new Dodaj_z_pliku();
+            Dodaj_z_pliku dod1 = new Dodaj_z_pliku(new Drivers());
             dod1.Show();
-            //to samo okieno dla samochodow i kierocow
         }
 
         private void AddDriverFromWindow(object sender, RoutedEventArgs e)

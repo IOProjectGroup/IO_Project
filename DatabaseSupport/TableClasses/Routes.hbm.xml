@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DatabaseSupport"
+                   namespace="DatabaseSupport.TableClasses">
+
+  <class name="DatabaseSupport.TableClasses.Routes" lazy="false" table="Routes">
+    <id name="ID_route" column="ID_route">
+      <generator class="identity"/>
+    </id>
+    <property name="MileageCounterStart" />
+    <property name="MileageCounterEnd" />
+    <many-to-one name="Cars" 
+                 class="Cars" 
+                 column="ID_car"
+                 cascade="all">
+    </many-to-one>
+    <many-to-one name="Drivers"
+                 class="Drivers"
+                 column="ID_driver"
+                 cascade="all">
+    </many-to-one>
+    <bag name="Towns" table="RoutesToTowns" cascade="none" lazy="false">
+      <key column ="ID_route" />
+      <many-to-many class="Towns" column="ID_town" />
+    </bag>
+  </class>
+
+</hibernate-mapping>

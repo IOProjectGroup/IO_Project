@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DatabaseSupport"
+                   namespace="DatabaseSupport.TableClasses">
+
+  <class name="DatabaseSupport.TableClasses.Drivers" lazy="false" table="Drivers">
+    <id name="ID_driver">
+      <column name="ID_driver" />
+      <generator class="native"/>
+    </id>
+    <property name="FirstName" />
+    <property name="LastName" />
+    <property name="Pesel" />
+    <bag name="AdditionalCosts" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_driver" />
+      <one-to-many class="AdditionalCosts" />
+    </bag>
+    <bag name="Routes" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_route" />
+      <one-to-many class="Routes" />
+    </bag>
+  </class>
+
+</hibernate-mapping>

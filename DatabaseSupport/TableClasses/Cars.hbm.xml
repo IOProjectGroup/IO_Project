@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DatabaseSupport"
+                   namespace="DatabaseSupport.TableClasses">
+
+  <class name="DatabaseSupport.TableClasses.Cars" lazy="false" table="Cars">
+    <id name="ID_car">
+      <column name="ID_car" />
+      <generator class="native"/>
+    </id>
+    <property name="Brand" />
+    <property name="Model" />
+    <property name="Cost" />
+    <property name="DateOfProduction" />
+    <property name="DateOfPurchase" />
+    <property name="RegistrationNumber" />
+    <bag name="Insurance" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_car" />
+      <one-to-many class="Insurance" />
+    </bag>
+    <bag name="Refuels" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_car" />
+      <one-to-many class="Refuels" />
+    </bag>
+    <bag name="Repairs" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_car" />
+      <one-to-many class="Repairs" />
+    </bag>
+    <bag name="AdditionalCosts" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_car" />
+      <one-to-many class="AdditionalCosts" />
+    </bag>
+    <bag name="Routes" cascade="all-delete-orphan" lazy="false">
+      <key column="ID_route" />
+      <one-to-many class="Routes" />
+    </bag>
+  </class>
+
+</hibernate-mapping>

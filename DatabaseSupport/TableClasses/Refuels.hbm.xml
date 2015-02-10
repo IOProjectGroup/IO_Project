@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DatabaseSupport"
+                   namespace="DatabaseSupport.TableClasses">
+
+  <class name="DatabaseSupport.TableClasses.Refuels" lazy="false" table="Refuels">
+    <id name="ID_refuel" column="ID_refuel">
+      <generator class="identity"/>
+    </id>
+    <property name="Cost" />
+    <property name="Fuel" />
+    <many-to-one name="Cars" 
+                 class="Cars" 
+                 column="ID_car"
+                 cascade="all">
+    </many-to-one>
+  </class>
+
+</hibernate-mapping>
