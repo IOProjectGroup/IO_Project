@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -52,7 +54,7 @@ namespace CostManagement
 
         private void AddCarFromExcelFile(object sender, RoutedEventArgs e)
         {
-            Dodaj_z_pliku dod1 = new Dodaj_z_pliku();
+            Dodaj_z_pliku dod1 = new Dodaj_z_pliku(new Cars());
             dod1.Show();
             //to samo okieno dla samochodow i kierocow
         }

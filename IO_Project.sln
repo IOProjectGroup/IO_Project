@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO_Project", "IO_Project\IO_Project.csproj", "{D7E9BBBA-194C-431C-B99E-2B3174906604}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CostManagement", "CostManagement\CostManagement.csproj", "{3171F0E2-CF5B-4A72-9931-1D73871D72E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseSupport", "DatabaseSupport\DatabaseSupport.csproj", "{10802340-BDA2-4636-8655-18A02653FF36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D7E9BBBA-194C-431C-B99E-2B3174906604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7E9BBBA-194C-431C-B99E-2B3174906604}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7E9BBBA-194C-431C-B99E-2B3174906604}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7E9BBBA-194C-431C-B99E-2B3174906604}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3171F0E2-CF5B-4A72-9931-1D73871D72E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3171F0E2-CF5B-4A72-9931-1D73871D72E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3171F0E2-CF5B-4A72-9931-1D73871D72E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3171F0E2-CF5B-4A72-9931-1D73871D72E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10802340-BDA2-4636-8655-18A02653FF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10802340-BDA2-4636-8655-18A02653FF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10802340-BDA2-4636-8655-18A02653FF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10802340-BDA2-4636-8655-18A02653FF36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

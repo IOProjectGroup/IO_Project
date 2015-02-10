@@ -244,6 +244,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseSupport\DatabaseSupport.csproj">
+      <Project>{10802340-bda2-4636-8655-18a02653ff36}</Project>
+      <Name>DatabaseSupport</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

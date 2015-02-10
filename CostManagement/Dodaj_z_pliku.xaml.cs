@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -19,9 +21,18 @@ namespace CostManagement
     /// </summary>
     public partial class Dodaj_z_pliku : Window
     {
-        public Dodaj_z_pliku()
+        string choice = null;
+        public Dodaj_z_pliku(Object obj)
         {
             InitializeComponent();
+            if(obj is Drivers)
+            {
+                choice = "d";
+            }
+            else if(obj is Cars)
+            {
+                choice = "c";
+            }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -43,15 +54,11 @@ namespace CostManagement
 
         }
 
-
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-
-
+        
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Close();
