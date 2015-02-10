@@ -7,57 +7,45 @@
     </Window.Background>
     <StackPanel Background="#FFF4F5F7">
         <Menu Height="28" FontSize="14" Background="{x:Null}" HorizontalAlignment="Center" Foreground="#FF2C2C2C" FontStretch="Condensed"    >
-
-
-
-
             <MenuItem Header="_UBEZPIECZENIA" Margin="0,2,0,0" Background="{x:Null}" >
-                <MenuItem Header="_Dodaj" Click="MenuItem_Click_8" />
-                <MenuItem Header="_Modyfikuj" Click="MenuItem_Click_9" />
-                <MenuItem Header="_Pokaż" Click="MenuItem_Click_21" />
+                <MenuItem Header="_Dodaj" Click="AddInsurance" />
+                <MenuItem Header="_Modyfikuj" Click="ModifyInsurance" />
+                <MenuItem Header="_Pokaż" Click="ShowInsurance" />
             </MenuItem>
-
             <MenuItem Header="_TANKOWANIA" Margin="10,2,0,0">
-                <MenuItem Header="_Dodaj" Click="MenuItem_Click_10" />
-                <MenuItem Header="_Modyfikuj" Click="MenuItem_Click_11" />
-                <MenuItem Header="_Pokaz" Click="MenuItem_Click_22" />
-
+                <MenuItem Header="_Dodaj" Click="AddRefuel" />
+                <MenuItem Header="_Modyfikuj" Click="ModifyRefuel" />
+                <MenuItem Header="_Pokaz" Click="ShowRefuel" />
             </MenuItem>
-
             <MenuItem Header="_NAPRAWA" Margin="10,2,0,0">
-                <MenuItem Header="_Dodaj" Click="MenuItem_Click_12" />
-                <MenuItem Header="_Modyfikuj" Click="MenuItem_Click_13" />
-                <MenuItem Header="_Pokaż" Click="MenuItem_Click_23" />
+                <MenuItem Header="_Dodaj" Click="AddRepairs" />
+                <MenuItem Header="_Modyfikuj" Click="ModifyRepairs" />
+                <MenuItem Header="_Pokaż" Click="ShowRepairs" />
             </MenuItem>
-
             <MenuItem Header="_TRASY" Margin="10,2,0,0">
-                <MenuItem Header="_Dodaj" Click="MenuItem_Click_14" />
-                <MenuItem Header="_Modyfikuj" Click="MenuItem_Click_15" />
-                <MenuItem Header="_Pokaż" Click="MenuItem_Click_24" />
+                <MenuItem Header="_Dodaj" Click="AddRoutes" />
+                <MenuItem Header="_Modyfikuj" Click="ModifyRoutes" />
+                <MenuItem Header="_Pokaż" Click="ShowRoutes" />
             </MenuItem>
-
             <MenuItem Header="_KOSZTY DOD" Margin="10,2,0,0">
-                <MenuItem Header="_Dodaj" Click="MenuItem_Click_16" />
-                <MenuItem Header="_Modyfikuj" Click="MenuItem_Click_17" />
-                <MenuItem Header="_Pokaż" Click="MenuItem_Click_25" />
+                <MenuItem Header="_Dodaj" Click="AddAdditionalCosts" />
+                <MenuItem Header="_Modyfikuj" Click="ModifyAdditionalCosts" />
+                <MenuItem Header="_Pokaż" Click="ShowAdditionalCosts" />
             </MenuItem>
-
             <MenuItem Header="_BACK UP" Margin="10,2,0,0">
-                <MenuItem Header="_Bazy danych" Click="MenuItem_Click_18"  />
-                <MenuItem Header="_Przywrócenie bazy danyuch z pliku" Click="MenuItem_Click_19" />
+                <MenuItem Header="_Bazy danych" Click="BackUpDatabase"  />
+                <MenuItem Header="_Przywrócenie bazy danych z pliku" Click="RestoreDatabase" />
             </MenuItem>
         </Menu>
-
         <StackPanel Orientation="Vertical" Margin="0,0">
             <Menu Height="28" FontSize="13" Background="#FF6C6C6C">
-                <MenuItem  Header="_KIEROWCY" Margin="5,2,0,0" Click="MenuItem_Click_20" Foreground="White">
-                    <MenuItem Header="_Dodaj z pliku" Click="MenuItem_Click" Foreground="Black" />
-                    <MenuItem Header="_Dodaj ręcznie" Click="MenuItem_Click_1" Foreground="Black" />
+                <MenuItem  Header="_KIEROWCY" Margin="5,2,0,0" Foreground="White">
+                    <MenuItem Header="_Dodaj z pliku" Click="AddDriverFromExcelFile" Foreground="Black" />
+                    <MenuItem Header="_Dodaj ręcznie" Click="AddDriverFromWindow" Foreground="Black" />
                     <Separator />
-                    <MenuItem Header="_Modyfikuj" Click="MenuItem_Click_2" Foreground="Black" />
+                    <MenuItem Header="_Modyfikuj" Click="ModifyDrivers" Foreground="Black" />
                     <Separator />
-                    <MenuItem Header="_Usuń" Click="MenuItem_Click_3" Foreground="Black" />
-
+                    <MenuItem Header="_Usuń" Click="DeleteDriver" Foreground="Black" />
                 </MenuItem>
             </Menu>
             <DataGrid x:Name="dg_kierowcy" Height="285"   Margin="0,0,-8,0">
@@ -65,17 +53,14 @@
                     <DataGridCheckBoxColumn Header="zaznacz" IsThreeState="True" Binding="{Binding OnlineOrderFlag}" />
                 </DataGrid.Columns>
             </DataGrid>
-
             <Menu Height="28" FontSize="13" Background="#FF6C6C6C">
-
-
                 <MenuItem Header="_SAMOCHODY" Margin="5,2,0,0" Foreground="#FFFFFDFD">
-                    <MenuItem Header="_Dodaj z pliku" Click="MenuItem_Click" Foreground="Black" />
-                    <MenuItem Header="_Dodaj ręcznie" Click="MenuItem_Click_5" Foreground="Black"  />
+                    <MenuItem Header="_Dodaj z pliku" Click="AddCarFromExcelFile" Foreground="Black" />
+                    <MenuItem Header="_Dodaj ręcznie" Click="AddCarFromWindow" Foreground="Black"  />
                     <Separator />
-                    <MenuItem Header="_Modyfikuj" Click="MenuItem_Click_6" Foreground="Black" />
+                    <MenuItem Header="_Modyfikuj" Click="ModifyCar" Foreground="Black" />
                     <Separator />
-                    <MenuItem Header="_Usuń" Click="MenuItem_Click_7" Foreground="Black" />
+                    <MenuItem Header="_Usuń" Click="DeleteCar" Foreground="Black" />
                 </MenuItem>
             </Menu>
             <DataGrid x:Name="dg_samochody" Height="285"   Margin="0,0,-8,0">
@@ -83,10 +68,7 @@
                     <DataGridCheckBoxColumn Header="zaznacz" IsThreeState="True" Binding="{Binding OnlineOrderFlag}" />
                 </DataGrid.Columns>
             </DataGrid>
-
         </StackPanel>
-
-
         <StackPanel Orientation="Horizontal"   Height="59" Background="#FFE4F141" >
             <Button Content="STATYSTYKA" FontSize="15" Width="200" Height="35" Margin="260,0,0,0"/>
             <Button Content="RAPORT" FontSize="15" Width="200" Height="35" Margin="100,0,0,0"/>
