@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -19,18 +21,32 @@ namespace CostManagement
     /// </summary>
     public partial class mod_sam : Window
     {
-        public mod_sam()
+        Cars car = null;
+
+        public mod_sam(Cars car)
         {
             InitializeComponent();
+            this.car = car;
+
+            Brand.Text = car.Brand;
+            Model.Text = car.Model;
+            RegNumber.Text = car.RegistrationNumber;
+            DateOfProduction.Text = car.DateOfProduction.ToShortDateString();
+            DateOfPurchase.Text = car.DateOfPurchase.ToShortDateString();
+            Cost.Text = car.Cost.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*  musi byc zaznczony samochod
-             * w polach sa wpisane obecne dane, zmiana danych, zapisanie i zamkniecie okna
-             * 
-             * pola : marka, model, rejestr, data_prod, data_zak, koszt
-             */
+            car.Brand = Brand.Text;
+            car.Model = Model.Text;
+            car.RegistrationNumber = RegNumber.Text;
+            car.DateOfProduction = Convert.ToDateTime(DateOfProduction.Text);
+            car.DateOfPurchase = Convert.ToDateTime(DateOfPurchase.Text);
+            car.Cost = Convert.ToDecimal(Cost.Text);
+
+            DatabaseWriter myWriter = new DatabaseWriter();
+            myWriter.AddToDatabase(car);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

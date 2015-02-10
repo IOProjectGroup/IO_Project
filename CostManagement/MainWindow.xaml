@@ -49,8 +49,12 @@
                         <MenuItem Header="_Usuń" Click="DeleteDriver" Foreground="Black" />
                     </MenuItem>
                 </Menu>
-                <DataGrid x:Name="dg_kierowcy" Height="285"   Margin="0,0,-8,0">
-
+                <DataGrid x:Name="dg_kierowcy" Height="285" Margin="0,0,-8,0" ItemsSource="{Binding Source=list}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Imię"  Binding="{Binding FirstName}"/>
+                        <DataGridTextColumn Header="Nazwisko"  Binding="{Binding LastName}"/>
+                        <DataGridTextColumn Header="Pesel"  Binding="{Binding Pesel}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
                 <Menu Height="28" FontSize="13" Background="#FF6C6C6C">
                     <MenuItem Header="_SAMOCHODY" Margin="5,2,0,0" Foreground="#FFFFFDFD">
@@ -62,8 +66,15 @@
                         <MenuItem Header="_Usuń" Click="DeleteCar" Foreground="Black" />
                     </MenuItem>
                 </Menu>
-                <DataGrid x:Name="dg_samochody" Height="285"   Margin="0,0,-8,0">
-
+                <DataGrid x:Name="dg_samochody" Height="285"   Margin="0,0,-8,0" ItemsSource="{Binding Source=list}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Marka"  Binding="{Binding Brand}"/>
+                        <DataGridTextColumn Header="Model"  Binding="{Binding Model}"/>
+                        <DataGridTextColumn Header="Koszt"  Binding="{Binding Cost}"/>
+                        <DataGridTextColumn Header="Data produkcji"  Binding="{Binding DateOfProduction}"/>
+                        <DataGridTextColumn Header="Data zakupu"  Binding="{Binding DateOfPurchase}"/>
+                        <DataGridTextColumn Header="Numer rejestracyjny"  Binding="{Binding RegistrationNumber}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="59" Background="#FFE4F141" >

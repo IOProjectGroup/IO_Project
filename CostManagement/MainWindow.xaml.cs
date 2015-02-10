@@ -70,8 +70,11 @@ namespace CostManagement
 
         private void ModifyCar(object sender, RoutedEventArgs e)
         {
-            mod_sam m = new mod_sam();
-            m.Show();
+            if (dg_samochody.SelectedItem != null)
+            {
+                mod_sam m = new mod_sam((Cars)dg_samochody.SelectedItem);
+                m.Show();
+            }
         }
 
         private void DeleteCar(object sender, RoutedEventArgs e)

@@ -17,12 +17,12 @@
 
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="marka" Height="25" Width="170" />
-                <TextBox x:Name="model" Height="25" Width="170" Margin="0,12,0,0"/>
-                <TextBox x:Name="rejestr" Height="25" Width="170" Margin="0,12,0,0"/>
-                <DatePicker x:Name="data_prod" Height="25" Width="170" Margin="0,12,0,0"/>
-                <DatePicker x:Name="data_zak" Height="25" Width="170" Margin="0,12,0,0"/>
-                <TextBox x:Name="koszt" Height="25" Width="170" Margin="0,12,0,0"/>
+                <TextBox x:Name="Brand" Height="25" Width="170" />
+                <TextBox x:Name="Model" Height="25" Width="170" Margin="0,12,0,0"/>
+                <TextBox x:Name="RegNumber" Height="25" Width="170" Margin="0,12,0,0"/>
+                <DatePicker x:Name="DateOfProduction" Height="25" Width="170" Margin="0,12,0,0"/>
+                <DatePicker x:Name="DateOfPurchase" Height="25" Width="170" Margin="0,12,0,0"/>
+                <TextBox x:Name="Cost" Height="25" Width="170" Margin="0,12,0,0"/>
 
             </StackPanel>
         </StackPanel>
