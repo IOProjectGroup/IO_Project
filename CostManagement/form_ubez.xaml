@@ -1,0 +1,33 @@
+﻿<Window x:Class="CostManagement.form_ubez"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Formularz ubezpieczenia" Height="250" Width="375">
+    <StackPanel Orientation="Vertical" Background="#FFF4F5F7">
+
+        <TextBlock Text="Dodaj ubezpieczenie :" Background="#FFE4F141"  Padding="30,5,5,5" />
+
+        <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+            <StackPanel Orientation="Vertical" Width="120" Margin="0,0,8,0" >
+                
+                <TextBlock Text="Data rozpoczecia : " TextAlignment="Right" Margin="0,3,0,5"/>
+                <TextBlock Text="Data zakonczenia : " TextAlignment="Right" Margin="0,16,0,5"/>
+                <TextBlock Text="Koszt : " TextAlignment="Right" Margin="0,16,0,5"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                
+                <DatePicker x:Name="data_rozp" Height="25" Width="170" />
+                <DatePicker x:Name="data_zako" Height="25" Width="170" Margin="0,12,0,0"/>
+                <TextBox x:Name="koszt1" Height="25" Width="170" Margin="0,12,0,0"/>
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0"  >
+            <Button Content="Dodaj" Height="25" Width="100" Click="Button_Click" />
+            <Button Content="Anuluj" Height="25" Width="100" Margin="30,0,0,0" Click="Button_Click_1"/>
+        </StackPanel>
+
+
+    </StackPanel>
+</Window>

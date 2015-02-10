@@ -1,0 +1,82 @@
+﻿<Window x:Class="CostManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CostManagement" Height="768" Width="1024">
+    <Window.Background>
+        <SolidColorBrush Color="#FFEAEAEA"/>
+    </Window.Background>
+    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <StackPanel Background="#FFF4F5F7">
+            <Menu Height="28" FontSize="14" Background="{x:Null}" HorizontalAlignment="Center" Foreground="#FF2C2C2C" FontStretch="Condensed"    >
+                <MenuItem Header="_UBEZPIECZENIA" Margin="0,2,0,0" Background="{x:Null}" >
+                    <MenuItem Header="_Dodaj" Click="AddInsurance" />
+                    <MenuItem Header="_Modyfikuj" Click="ModifyInsurance" />
+                    <MenuItem Header="_Pokaż" Click="ShowInsurance" />
+                </MenuItem>
+                <MenuItem Header="_TANKOWANIA" Margin="10,2,0,0">
+                    <MenuItem Header="_Dodaj" Click="AddRefuel" />
+                    <MenuItem Header="_Modyfikuj" Click="ModifyRefuel" />
+                    <MenuItem Header="_Pokaz" Click="ShowRefuel" />
+                </MenuItem>
+                <MenuItem Header="_NAPRAWA" Margin="10,2,0,0">
+                    <MenuItem Header="_Dodaj" Click="AddRepairs" />
+                    <MenuItem Header="_Modyfikuj" Click="ModifyRepairs" />
+                    <MenuItem Header="_Pokaż" Click="ShowRepairs" />
+                </MenuItem>
+                <MenuItem Header="_TRASY" Margin="10,2,0,0">
+                    <MenuItem Header="_Dodaj" Click="AddRoutes" />
+                    <MenuItem Header="_Modyfikuj" Click="ModifyRoutes" />
+                    <MenuItem Header="_Pokaż" Click="ShowRoutes" />
+                </MenuItem>
+                <MenuItem Header="_KOSZTY DOD" Margin="10,2,0,0">
+                    <MenuItem Header="_Dodaj" Click="AddAdditionalCosts" />
+                    <MenuItem Header="_Modyfikuj" Click="ModifyAdditionalCosts" />
+                    <MenuItem Header="_Pokaż" Click="ShowAdditionalCosts" />
+                </MenuItem>
+                <MenuItem Header="_BACK UP" Margin="10,2,0,0">
+                    <MenuItem Header="_Bazy danych" Click="BackUpDatabase"  />
+                    <MenuItem Header="_Przywrócenie bazy danych z pliku" Click="RestoreDatabase" />
+                </MenuItem>
+            </Menu>
+            <StackPanel Orientation="Vertical" Margin="0,0">
+                <Menu Height="28" FontSize="13" Background="#FF6C6C6C">
+                    <MenuItem  Header="_KIEROWCY" Margin="5,2,0,0" Foreground="White">
+                        <MenuItem Header="_Dodaj z pliku" Click="AddDriverFromExcelFile" Foreground="Black" />
+                        <MenuItem Header="_Dodaj ręcznie" Click="AddDriverFromWindow" Foreground="Black" />
+                        <Separator />
+                        <MenuItem Header="_Modyfikuj" Click="ModifyDrivers" Foreground="Black" />
+                        <Separator />
+                        <MenuItem Header="_Usuń" Click="DeleteDriver" Foreground="Black" />
+                    </MenuItem>
+                </Menu>
+                <DataGrid x:Name="dg_kierowcy" Height="285"   Margin="0,0,-8,0">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Header="zaznacz" IsThreeState="True" Binding="{Binding OnlineOrderFlag}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Menu Height="28" FontSize="13" Background="#FF6C6C6C">
+                    <MenuItem Header="_SAMOCHODY" Margin="5,2,0,0" Foreground="#FFFFFDFD">
+                        <MenuItem Header="_Dodaj z pliku" Click="AddCarFromExcelFile" Foreground="Black" />
+                        <MenuItem Header="_Dodaj ręcznie" Click="AddCarFromWindow" Foreground="Black"  />
+                        <Separator />
+                        <MenuItem Header="_Modyfikuj" Click="ModifyCar" Foreground="Black" />
+                        <Separator />
+                        <MenuItem Header="_Usuń" Click="DeleteCar" Foreground="Black" />
+                    </MenuItem>
+                </Menu>
+                <DataGrid x:Name="dg_samochody" Height="285"   Margin="0,0,-8,0">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Header="zaznacz" IsThreeState="True" Binding="{Binding OnlineOrderFlag}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="59" Background="#FFE4F141" >
+                <Button Content="STATYSTYKA" FontSize="15" Width="200" Height="35" Margin="50,0,0,0"/>
+                <Button Content="RAPORT" FontSize="15" Width="200" Height="35" Margin="50,0,50,0"/>
+            </StackPanel>
+            <StatusBar Height="20"  Background="#FFF0F0F0" />
+
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>

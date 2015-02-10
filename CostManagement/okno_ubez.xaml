@@ -1,0 +1,9 @@
+﻿<Window x:Class="CostManagement.okno_ubez"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lista ubezpieczeń" Height="400" Width="600">
+    <StackPanel>
+        <TextBlock Text="UBEZPIECZENIA :"   Background="#FFE4F141"  Padding="30,5,5,5" />
+        <DataGrid x:Name="dg_ubez" Height="345" />
+    </StackPanel>
+</Window>
