@@ -1,0 +1,9 @@
+﻿<Window x:Class="CostManagement.okno_kdod"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lista kosztów dodatkowych" Height="400" Width="400">
+    <StackPanel>
+        <TextBlock Text="KOSZTY DODATKOWE :"   Background="#FFE4F141"  Padding="30,5,5,5" />
+        <DataGrid x:Name="dg_kdod" Height="345" />
+    </StackPanel>
+</Window>
