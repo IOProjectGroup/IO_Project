@@ -36,5 +36,31 @@ namespace DatabaseSupport
 
             return null;
         }
+
+        public String DeleteFromDatabase(Object tableClass)
+        {
+            DatabaseConnection myConnection = DatabaseConnection.Instance;
+
+            ISession mySession = myConnection.OpenConnection();
+
+            using (mySession.BeginTransaction())
+            {
+                try
+                {
+                    mySession.Delete(tableClass);
+                }
+                catch (Exception e)
+                {
+                    mySession.Transaction.Rollback();
+                    return e.Message;
+                }
+
+                mySession.Transaction.Commit();
+            }
+
+            myConnection.CloseConnection();
+
+            return null;
+        }
     }
 }

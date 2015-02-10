@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DatabaseSupport.TableClasses
 {
-    public abstract class TableClass
+    public class TableClass
     {
-        
+
     }
 }

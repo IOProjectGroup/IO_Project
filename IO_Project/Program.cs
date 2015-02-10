@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using DatabaseSupport;
 using System.Data;
 using DatabaseSupport.TableClasses;
+using ExcelSupport;
 
 namespace IO_Project
 {
@@ -14,6 +15,7 @@ namespace IO_Project
     {
         static void Main(string[] args)
         {
+            /*
             DatabaseWriter writer = new DatabaseWriter();
 
             DatabaseReader reader = new DatabaseReader();
@@ -45,6 +47,11 @@ namespace IO_Project
                     Console.WriteLine(item.ToString());
                 }
             }
+            */
+
+            ExcelReader myreader = new ExcelReader("E:\\Torrent\\Seriale\\Seriale.xls");
+
+            //myreader.ReadFromExcelFile("A","D");
 
             Console.WriteLine("end of the program".FullyCapitalize());
             Console.ReadLine();
