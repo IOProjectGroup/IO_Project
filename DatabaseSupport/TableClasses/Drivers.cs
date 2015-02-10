@@ -54,8 +54,14 @@ namespace DatabaseSupport.TableClasses
         }
         public override bool Equals(object obj)
         {
-            Drivers driver = (Drivers)obj;
-            return this.pesel.Equals(driver.pesel);
+            bool isEqual = false;
+            try
+            {
+                Drivers driver = (Drivers)obj;
+                isEqual = this.pesel.Equals(driver.pesel);
+            }
+            catch (Exception) { }
+            return isEqual;
         }
 
         public override int GetHashCode()
