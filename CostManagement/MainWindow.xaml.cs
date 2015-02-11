@@ -17,7 +17,9 @@ using DatabaseSupport.TableClasses;
 using Microsoft.SqlServer;
 using Microsoft.SqlServer.Management.Sdk.Sfc;
 using Microsoft.SqlServer.Management.Common;
-using Microsoft.SqlServer.Management.Smo;   
+using Microsoft.SqlServer.Management.Smo;
+using Calculating;
+using ExcelSupport;
 
 namespace CostManagement
 {
@@ -31,7 +33,67 @@ namespace CostManagement
             InitializeComponent();
             reloadDatagrids();
         }
-        
+
+        void carraport_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_samochody.SelectedItem != null)
+            {
+                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+                dlg.Filter = "Excel files (*.xls; *.xlsx)|*.xls; *.xlsx|All files (*.*)|*.*";
+
+                Nullable<bool> result = dlg.ShowDialog();
+
+                if (result == true)
+                {
+                    string filename = dlg.FileName;
+
+                    ExcelWriter myWriter = new ExcelWriter(filename);
+
+                    myWriter.SaveCarRaportToExcelFile((Cars)dg_samochody.SelectedItem);
+
+                    myWriter.CloseWorkbook();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano samochodu");
+            }
+        }
+
+        void driverraport_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_kierowcy.SelectedItem != null)
+            {
+                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+                dlg.Filter = "Excel files (*.xls; *.xlsx)|*.xls; *.xlsx|All files (*.*)|*.*";
+
+                Nullable<bool> result = dlg.ShowDialog();
+
+                if (result == true)
+                {
+                    string filename = dlg.FileName;
+
+                    ExcelWriter myWriter = new ExcelWriter(filename);
+
+                    myWriter.SaveDriverRaportToExcelFile((Drivers)dg_kierowcy.SelectedItem);
+
+                    myWriter.CloseWorkbook();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano kierowcy");
+            }
+        }
+
+        void stats_Click(object sender, RoutedEventArgs e)
+        {
+            Statistics stat = new Statistics();
+            stat.Show();
+        }
+
         private void ReloadDrivers(object sender, RoutedEventArgs e)
         {
             DatabaseReader myReader = new DatabaseReader();
@@ -307,7 +369,7 @@ namespace CostManagement
                 o.Show();
             }
         }
-        
+
         public void reloadDatagrids()
         {
             DatabaseReader myReader = new DatabaseReader();

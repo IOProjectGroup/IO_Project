@@ -202,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Statistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="okno_ubez.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +245,9 @@
     <Compile Include="okno_tras.xaml.cs">
       <DependentUpon>okno_tras.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
     <Compile Include="okno_ubez.xaml.cs">
       <DependentUpon>okno_ubez.xaml</DependentUpon>
     </Compile>
@@ -271,6 +278,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Calculating\Calculating.csproj">
+      <Project>{29e1eed3-0b83-4549-a1c0-bd175f802cd2}</Project>
+      <Name>Calculating</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DatabaseSupport\DatabaseSupport.csproj">
       <Project>{10802340-bda2-4636-8655-18a02653ff36}</Project>
       <Name>DatabaseSupport</Name>

@@ -44,6 +44,8 @@
                         <MenuItem Header="_Usuń" Click="DeleteDriver" Foreground="Black" />
                         <Separator />
                         <MenuItem Header="_Odśwież" Click="ReloadDrivers" Foreground="Black" />
+                        <Separator />
+                        <MenuItem Header="_Raport" Click="driverraport_Click" Foreground="Black" />
                     </MenuItem>
                 </Menu>
                 <DataGrid x:Name="dg_kierowcy" MinHeight="100" Margin="0,0,-8,0" ItemsSource="{Binding Source=list}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
@@ -63,6 +65,9 @@
                         <MenuItem Header="_Usuń" Click="DeleteCar" Foreground="Black" />
                         <Separator />
                         <MenuItem Header="_Odśwież" Click="ReloadCars" Foreground="Black" />
+                        <Separator />
+                        <MenuItem Header="_Statystyka" Click="stats_Click" Foreground="Black" />
+                        <MenuItem Header="_Raport" Click="carraport_Click" Foreground="Black" />
                     </MenuItem>
                 </Menu>
                 <DataGrid x:Name="dg_samochody" MinHeight="100" Margin="0,0,-8,0" ItemsSource="{Binding Source=list}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
@@ -75,10 +80,6 @@
                         <DataGridTextColumn Header="Numer rejestracyjny"  Binding="{Binding RegistrationNumber}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="59" Background="#FFE4F141" >
-                <Button Content="STATYSTYKA" FontSize="15" Width="200" Height="35" Margin="50,0,0,0"/>
-                <Button Content="RAPORT" FontSize="15" Width="200" Height="35" Margin="50,0,50,0"/>
             </StackPanel>
             <StatusBar Height="20"  Background="#FFF0F0F0" />
 
