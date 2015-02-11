@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -19,6 +21,7 @@ namespace CostManagement
     /// </summary>
     public partial class form_sam : Window
     {
+        Cars car = new Cars();
         public form_sam()
         {
             InitializeComponent();
@@ -26,11 +29,22 @@ namespace CostManagement
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*
-             * przy datach dalam DatePicker jakby byly jakies problemy to wystarczy zmienic na TextBox
-             * 
-             * pola : marka, model, rejestr, data_prod, data_zak, koszt
-             */
+            if (marka.Text != "" && model.Text != "" && rejestr.Text != "" && data_prod.Text != "" && data_zak.Text != "" && koszt.Text != "")
+            {
+                car.Brand = marka.Text;
+                car.Model = model.Text;
+                car.RegistrationNumber = rejestr.Text;
+                car.DateOfProduction = Convert.ToDateTime(data_prod.Text);
+                car.DateOfPurchase = Convert.ToDateTime(data_zak.Text);
+                car.Cost = Convert.ToDecimal(koszt.Text);
+
+                DatabaseWriter myWriter = new DatabaseWriter();
+                myWriter.AddToDatabase(car);
+            }
+            else
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

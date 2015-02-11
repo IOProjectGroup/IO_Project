@@ -38,15 +38,23 @@ namespace CostManagement
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            car.Brand = Brand.Text;
-            car.Model = Model.Text;
-            car.RegistrationNumber = RegNumber.Text;
-            car.DateOfProduction = Convert.ToDateTime(DateOfProduction.Text);
-            car.DateOfPurchase = Convert.ToDateTime(DateOfPurchase.Text);
-            car.Cost = Convert.ToDecimal(Cost.Text);
+            if (Brand.Text != "" && Model.Text != "" && RegNumber.Text != "" && DateOfProduction.Text != "" && DateOfPurchase.Text != "" && Cost.Text != "")
+            {
+                car.Brand = Brand.Text;
+                car.Model = Model.Text;
+                car.RegistrationNumber = RegNumber.Text;
+                car.DateOfProduction = Convert.ToDateTime(DateOfProduction.Text);
+                car.DateOfPurchase = Convert.ToDateTime(DateOfPurchase.Text);
+                car.Cost = Convert.ToDecimal(Cost.Text);
 
-            DatabaseWriter myWriter = new DatabaseWriter();
-            myWriter.AddToDatabase(car);
+                DatabaseWriter myWriter = new DatabaseWriter();
+                myWriter.AddToDatabase(car);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

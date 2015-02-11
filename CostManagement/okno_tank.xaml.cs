@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -19,9 +21,25 @@ namespace CostManagement
     /// </summary>
     public partial class okno_tank : Window
     {
-        public okno_tank()
+        public okno_tank(Cars car)
         {
             InitializeComponent();
+            DatabaseReader myReader = new DatabaseReader();
+            dg_tank.ItemsSource = myReader.GetCar(car).Refuels;
+            Edit.Click += Edit_Click;
+        }
+
+        void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_tank.SelectedItem != null)
+            {
+                mod_tank m = new mod_tank((Refuels)dg_tank.SelectedItem);
+                m.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano samochodu");
+            }
         }
     }
 }

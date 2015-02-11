@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -57,7 +58,7 @@ namespace DatabaseSupport.TableClasses
             set { registrationNumber = value.ToUpper(); }
         }
 
-        private IList<Insurance> insurance = new List<Insurance>();
+        private IList<Insurance> insurance = new BindingList<Insurance>();
 
         public virtual IList<Insurance> Insurance
         {
@@ -65,7 +66,7 @@ namespace DatabaseSupport.TableClasses
             set { insurance = value; }
         }
 
-        private IList<Refuels> refuels = new List<Refuels>();
+        private IList<Refuels> refuels = new BindingList<Refuels>();
 
         public virtual IList<Refuels> Refuels
         {
@@ -73,7 +74,7 @@ namespace DatabaseSupport.TableClasses
             set { refuels = value; }
         }
 
-        private IList<Repairs> repairs = new List<Repairs>();
+        private IList<Repairs> repairs = new BindingList<Repairs>();
 
         public virtual IList<Repairs> Repairs
         {
@@ -81,14 +82,14 @@ namespace DatabaseSupport.TableClasses
             set { repairs = value; }
         }
 
-        private IList<AdditionalCosts> additionalCosts = new List<AdditionalCosts>();
+        private IList<AdditionalCosts> additionalCosts = new BindingList<AdditionalCosts>();
 
         public virtual IList<AdditionalCosts> AdditionalCosts
         {
             get { return additionalCosts; }
             set { additionalCosts = value; }
         }
-        private IList<Routes> routes = new List<Routes>();
+        private IList<Routes> routes = new BindingList<Routes>();
 
         public virtual IList<Routes> Routes
         {

@@ -25,9 +25,19 @@ namespace CostManagement
         public MainWindow()
         {
             InitializeComponent();
+            reloadDatagrids();
+        }
+
+        private void ReloadDrivers(object sender, RoutedEventArgs e)
+        {
+            DatabaseReader myReader = new DatabaseReader();
+            dg_kierowcy.ItemsSource = myReader.GetListOf<Drivers>();
+        }
+
+        private void ReloadCars(object sender, RoutedEventArgs e)
+        {
             DatabaseReader myReader = new DatabaseReader();
             dg_samochody.ItemsSource = myReader.GetListOf<Cars>();
-            dg_kierowcy.ItemsSource = myReader.GetListOf<Drivers>();
         }
 
         private void AddDriverFromExcelFile(object sender, RoutedEventArgs e)
@@ -44,15 +54,32 @@ namespace CostManagement
 
         private void ModifyDrivers(object sender, RoutedEventArgs e)
         {
-            mod_kier m = new mod_kier();
-            m.Show();
+            if (dg_kierowcy.SelectedItem != null)
+            {
+                mod_kier m = new mod_kier((Drivers)dg_kierowcy.SelectedItem);
+                m.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano kierowcy");
+            }
         }
 
         private void DeleteDriver(object sender, RoutedEventArgs e)
         {
-            /*
-             * usuwa zaznaczone pozycje
-             */
+            if (dg_kierowcy.SelectedItem != null)
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Jesteś pewien, że chcesz usunąć zaznaczoną pozycję z bazy?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    DatabaseWriter myWriter = new DatabaseWriter();
+                    myWriter.DeleteFromDatabase((Drivers)dg_kierowcy.SelectedItem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano kierowcy");
+            }
         }
 
         private void AddCarFromExcelFile(object sender, RoutedEventArgs e)
@@ -75,73 +102,100 @@ namespace CostManagement
                 mod_sam m = new mod_sam((Cars)dg_samochody.SelectedItem);
                 m.Show();
             }
+            else
+            {
+                MessageBox.Show("Nie wybrano samochodu");
+            }
         }
 
         private void DeleteCar(object sender, RoutedEventArgs e)
         {
-            /*
-             * usuwa zaznaczone pozycje
-             */
+            if (dg_samochody.SelectedItem != null)
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Jesteś pewien, że chcesz usunąć zaznaczoną pozycję z bazy?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    DatabaseWriter myWriter = new DatabaseWriter();
+                    myWriter.DeleteFromDatabase((Cars)dg_samochody.SelectedItem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano samochodu");
+            }
         }
 
         private void AddInsurance(object sender, RoutedEventArgs e)
         {
-            form_ubez f = new form_ubez();
-            f.Show();
-        }
-
-        private void ModifyInsurance(object sender, RoutedEventArgs e)
-        {
-            mod_ubez m = new mod_ubez();
-            m.Show();
+            if (dg_samochody.SelectedItem != null)
+            {
+                form_ubez f = new form_ubez((Cars)dg_samochody.SelectedItem);
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz samochód");
+            }
         }
 
         private void AddRefuel(object sender, RoutedEventArgs e)
         {
-            form_tank f = new form_tank();
-            f.Show();
-        }
-
-        private void ModifyRefuel(object sender, RoutedEventArgs e)
-        {
-            mod_tank m = new mod_tank();
-            m.Show();
+            if (dg_samochody.SelectedItem != null)
+            {
+                form_tank f = new form_tank((Cars)dg_samochody.SelectedItem);
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz samochód");
+            }
         }
 
         private void AddRepairs(object sender, RoutedEventArgs e)
         {
-            form_napr f = new form_napr();
-            f.Show();
-        }
-
-        private void ModifyRepairs(object sender, RoutedEventArgs e)
-        {
-            mod_napr m = new mod_napr();
-            m.Show();
+            if (dg_samochody.SelectedItem != null)
+            {
+                form_napr f = new form_napr((Cars)dg_samochody.SelectedItem);
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz samochód");
+            }
         }
 
         private void AddRoutes(object sender, RoutedEventArgs e)
         {
-            form_tras f = new form_tras();
-            f.Show();
-        }
-
-        private void ModifyRoutes(object sender, RoutedEventArgs e)
-        {
-            mod_tras m = new mod_tras();
-            m.Show();
+            if (dg_kierowcy.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano kierowcy");
+            }
+            else if (dg_samochody.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano samochodu");
+            }
+            else
+            {
+                form_tras f = new form_tras((Cars)dg_samochody.SelectedItem, (Drivers)dg_kierowcy.SelectedItem);
+                f.Show();
+            }
         }
 
         private void AddAdditionalCosts(object sender, RoutedEventArgs e)
         {
-            form_kdod f = new form_kdod();
-            f.Show();
-        }
-
-        private void ModifyAdditionalCosts(object sender, RoutedEventArgs e)
-        {
-            mod_kdod m = new mod_kdod();
-            m.Show();
+            if (dg_kierowcy.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano kierowcy");
+            }
+            else if (dg_samochody.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano samochodu");
+            }
+            else
+            {
+                form_kdod f = new form_kdod((Cars)dg_samochody.SelectedItem, (Drivers)dg_kierowcy.SelectedItem);
+                f.Show();
+            }
         }
 
         private void BackUpDatabase(object sender, RoutedEventArgs e)
@@ -159,32 +213,96 @@ namespace CostManagement
 
         private void ShowInsurance(object sender, RoutedEventArgs e)
         {
-            okno_ubez o = new okno_ubez();
-            o.Show();
+            if (dg_samochody.SelectedItem != null)
+            {
+                okno_ubez o = new okno_ubez((Cars)dg_samochody.SelectedItem);
+                o.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz samochód");
+            }
         }
 
         private void ShowRefuel(object sender, RoutedEventArgs e)
         {
-            okno_tank o = new okno_tank();
-            o.Show();
+            if (dg_samochody.SelectedItem != null)
+            {
+                okno_tank o = new okno_tank((Cars)dg_samochody.SelectedItem);
+                o.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz samochód");
+            }
         }
 
         private void ShowRepairs(object sender, RoutedEventArgs e)
         {
-            okno_napr o = new okno_napr();
-            o.Show();
+            if (dg_samochody.SelectedItem != null)
+            {
+                okno_napr o = new okno_napr((Cars)dg_samochody.SelectedItem);
+                o.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz samochód");
+            }
         }
 
         private void ShowRoutes(object sender, RoutedEventArgs e)
         {
-            okno_tras o = new okno_tras();
-            o.Show();
+            if (dg_samochody.SelectedItem == null && dg_kierowcy.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano samochodu ani kierowcy");
+                return;
+            }
+            if (dg_samochody.SelectedItem == null)
+            {
+                okno_tras o = new okno_tras(null, (Drivers)dg_kierowcy.SelectedItem);
+                o.Show();
+            }
+            else if (dg_kierowcy.SelectedItem == null)
+            {
+                okno_tras o = new okno_tras((Cars)dg_samochody.SelectedItem, null);
+                o.Show();
+            }
+            else
+            {
+                okno_tras o = new okno_tras((Cars)dg_samochody.SelectedItem, (Drivers)dg_kierowcy.SelectedItem);
+                o.Show();
+            }
         }
 
         private void ShowAdditionalCosts(object sender, RoutedEventArgs e)
         {
-            okno_kdod o = new okno_kdod();
-            o.Show();
+            if (dg_samochody.SelectedItem == null && dg_kierowcy.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano samochodu ani kierowcy");
+                return;
+            }
+            if (dg_samochody.SelectedItem == null)
+            {
+                okno_kdod o = new okno_kdod(null, (Drivers)dg_kierowcy.SelectedItem);
+                o.Show();
+            }
+            else if (dg_kierowcy.SelectedItem == null)
+            {
+                okno_kdod o = new okno_kdod((Cars)dg_samochody.SelectedItem, null);
+                o.Show();
+            }
+            else
+            {
+                okno_kdod o = new okno_kdod((Cars)dg_samochody.SelectedItem, (Drivers)dg_kierowcy.SelectedItem);
+                o.Show();
+            }
+        }
+
+        public void reloadDatagrids()
+        {
+            DatabaseReader myReader = new DatabaseReader();
+            dg_samochody.ItemsSource = myReader.GetListOf<Cars>();
+            dg_kierowcy.ItemsSource = myReader.GetListOf<Drivers>();
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="CostManagement.mod_tras"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         Title="Modyfikacja trasy" Height="210" Width="375">
+         Title="Modyfikacja trasy" Height="280" Width="375">
     <StackPanel Orientation="Vertical" Background="#FFF4F5F7">
 
         <TextBlock Text="Modyfikuj trasę :" Background="#FFE4F141"  Padding="30,5,5,5" />
@@ -11,6 +11,8 @@
 
                 <TextBlock Text="Początkowy stan licznika : " TextAlignment="Right" Margin="0,3,0,5"/>
                 <TextBlock Text="Końcowy stan licznika : " TextAlignment="Right" Margin="0,16,0,5"/>
+                <TextBlock Text="Miasto początkowe : " TextAlignment="Right" Margin="0,16,0,5"/>
+                <TextBlock Text="Miasto końcowe : " TextAlignment="Right" Margin="0,16,0,5"/>
 
 
             </StackPanel>
@@ -18,6 +20,8 @@
 
                 <TextBox x:Name="psl" Height="25" Width="170" />
                 <TextBox x:Name="ksl" Height="25" Width="170" Margin="0,12,0,0"/>
+                <TextBox x:Name="town1" Height="25" Width="170" Margin="0,12,0,0"/>
+                <TextBox x:Name="town2" Height="25" Width="170" Margin="0,12,0,0"/>
 
             </StackPanel>
         </StackPanel>

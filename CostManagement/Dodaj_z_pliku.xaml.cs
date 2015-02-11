@@ -53,17 +53,45 @@ namespace CostManagement
         {
             String path = FileNameTextBox.Text;
 
-            ExcelReader myReader = new ExcelReader(path); 
+            ExcelReader myReader = new ExcelReader(path);
+            DatabaseWriter myWriter = new DatabaseWriter();
 
-            if(obj is Drivers)
+            if (obj is Drivers)
             {
-
+                try
+                {
+                    List<Drivers> list = myReader.ReadDriverFromExcelFile();
+                    foreach (var item in list)
+                    {
+                        myWriter.AddToDatabase(item);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("ERROR! Plik jest nieprawidłowo sformatowany.");
+                }
+            }
+            else if (obj is Cars)
+            {
+                try
+                {
+                    List<Cars> list = myReader.ReadCarFromExcelFile();
+                    foreach (var item in list)
+                    {
+                        myWriter.AddToDatabase(item);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("ERROR! Plik jest nieprawidłowo sformatowany.");
+                }
             }
         }
-        
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
     }
 }

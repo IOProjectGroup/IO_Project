@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -19,17 +21,27 @@ namespace CostManagement
     /// </summary>
     public partial class form_tank : Window
     {
-        public form_tank()
+        Refuels refuel = new Refuels();
+        public form_tank(Cars car)
         {
             InitializeComponent();
+            this.refuel.Cars = car;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*  musi byc zaznczony samochod
-             * 
-             * pola : paliwo, koszt2
-             */
+            if (koszt2.Text != "" && paliwo.Text != "")
+            {
+                refuel.Fuel = Convert.ToDouble(paliwo.Text);
+                refuel.Cost = Convert.ToDouble(koszt2.Text);
+                DatabaseWriter myWriter = new DatabaseWriter();
+                myWriter.AddToDatabase(refuel);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

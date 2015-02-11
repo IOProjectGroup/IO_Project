@@ -137,7 +137,7 @@ namespace ExcelSupport
 
             for (int index = 3; index <= lastRow; index++)
             {
-                System.Array MyValues = (System.Array)MySheet.get_Range('A' + index.ToString(), 'D' + index.ToString()).Cells.Value;
+                System.Array MyValues = (System.Array)MySheet.get_Range('A' + index.ToString(), 'C' + index.ToString()).Cells.Value;
                 list.Add(new Refuels
                 {
                     Cost = Convert.ToDouble(MyValues.GetValue(1, 1)),
@@ -180,7 +180,7 @@ namespace ExcelSupport
 
             for (int index = 3; index <= lastRow; index++)
             {
-                System.Array MyValues = (System.Array)MySheet.get_Range('A' + index.ToString(), 'D' + index.ToString()).Cells.Value;
+                System.Array MyValues = (System.Array)MySheet.get_Range('A' + index.ToString(), 'F' + index.ToString()).Cells.Value;
                 List<Towns> townsList = new List<Towns>();
                 townsList.Add(new Towns { TownName = MyValues.GetValue(1, 5).ToString() });
                 townsList.Add(new Towns { TownName = MyValues.GetValue(1, 6).ToString() });

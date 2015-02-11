@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -19,18 +21,30 @@ namespace CostManagement
     /// </summary>
     public partial class mod_tank : Window
     {
-        public mod_tank()
+        Refuels refuel = null;
+        public mod_tank(Refuels refuel)
         {
             InitializeComponent();
+            this.refuel = refuel;
+
+            paliwo.Text = refuel.Fuel.ToString();
+            koszt2.Text = refuel.Cost.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*  musi byc zaznczony samochod
-             * w polach sa wpisane obecne dane, zmiana danych, zapisanie i zamkniecie okna
-             * 
-             * pola : paliwo, koszt2
-             */
+            if (koszt2.Text != "" && paliwo.Text != "")
+            {
+                refuel.Fuel = Convert.ToDouble(paliwo.Text);
+                refuel.Cost = Convert.ToDouble(koszt2.Text);
+                DatabaseWriter myWriter = new DatabaseWriter();
+                myWriter.AddToDatabase(refuel);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

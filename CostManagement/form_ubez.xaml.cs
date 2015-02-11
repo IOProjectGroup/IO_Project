@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseSupport;
+using DatabaseSupport.TableClasses;
 
 namespace CostManagement
 {
@@ -19,18 +21,28 @@ namespace CostManagement
     /// </summary>
     public partial class form_ubez : Window
     {
-        public form_ubez()
+        Insurance insurance = new Insurance();
+        public form_ubez(Cars car)
         {
             InitializeComponent();
+            this.insurance.Cars = car;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*
-             * musi byc zaznaczony samochod
-             * 
-             * pola : data_rozp, data_zako, koszt1
-             */
+            if (koszt1.Text != "" && data_rozp.Text != "" && data_zako.Text != "")
+            {
+                insurance.DateOfPurchase = Convert.ToDateTime(data_rozp.Text);
+                insurance.DateOfExpiry = Convert.ToDateTime(data_zako.Text);
+                insurance.Cost = Convert.ToDouble(koszt1.Text);
+                DatabaseWriter myWriter = new DatabaseWriter();
+                myWriter.AddToDatabase(insurance);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
