@@ -38,17 +38,17 @@ namespace DatabaseSupport.TableClasses
         }
         private DateTime dateOfProduction;
 
-        public virtual DateTime DateOfProduction
+        public virtual String DateOfProduction
         {
-            get { return dateOfProduction; }
-            set { dateOfProduction = value; }
+            get { return dateOfProduction.ToShortDateString(); }
+            set { dateOfProduction = Convert.ToDateTime(value); }
         }
         private DateTime dateOfPurchase;
 
-        public virtual DateTime DateOfPurchase
+        public virtual String DateOfPurchase
         {
-            get { return dateOfPurchase; }
-            set { dateOfPurchase = value; }
+            get { return dateOfPurchase.ToShortDateString(); }
+            set { dateOfPurchase = Convert.ToDateTime(value); }
         }
         private string registrationNumber;
 

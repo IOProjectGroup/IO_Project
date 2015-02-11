@@ -57,8 +57,8 @@ namespace ExcelSupport
                     Brand = MyValues.GetValue(1, 1).ToString(),
                     Model = MyValues.GetValue(1, 2).ToString(),
                     Cost = Convert.ToDecimal(MyValues.GetValue(1, 3)),
-                    DateOfProduction = Convert.ToDateTime(MyValues.GetValue(1, 4)),
-                    DateOfPurchase = Convert.ToDateTime(MyValues.GetValue(1, 5)),
+                    DateOfProduction = MyValues.GetValue(1, 4).ToString(),
+                    DateOfPurchase = MyValues.GetValue(1, 5).ToString(),
                     RegistrationNumber = MyValues.GetValue(1, 6).ToString(),
                 });
             }
@@ -119,8 +119,8 @@ namespace ExcelSupport
                 list.Add(new Insurance
                 {
                     Cost = Convert.ToDouble(MyValues.GetValue(1, 1)),
-                    DateOfPurchase = Convert.ToDateTime(MyValues.GetValue(1, 2)),
-                    DateOfExpiry = Convert.ToDateTime(MyValues.GetValue(1, 3)),
+                    DateOfPurchase = MyValues.GetValue(1, 2).ToString(),
+                    DateOfExpiry = MyValues.GetValue(1, 3).ToString(),
                     Cars = reader.GetCar(new Cars { RegistrationNumber = MyValues.GetValue(1, 4).ToString() })
                 });
             }
@@ -162,7 +162,7 @@ namespace ExcelSupport
                 list.Add(new Repairs
                 {
                     Cost = Convert.ToDouble(MyValues.GetValue(1, 1)),
-                    DateOfRepair = Convert.ToDateTime(MyValues.GetValue(1, 2)),
+                    DateOfRepair = MyValues.GetValue(1, 2).ToString(),
                     Specification = MyValues.GetValue(1, 3).ToString(),
                     Cars = reader.GetCar(new Cars { RegistrationNumber = MyValues.GetValue(1, 4).ToString() })
                 });

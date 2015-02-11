@@ -27,8 +27,8 @@ namespace CostManagement
             InitializeComponent();
             this.insurance = insurance;
 
-            data_rozp.Text = insurance.DateOfPurchase.ToShortDateString();
-            data_zako.Text = insurance.DateOfExpiry.ToShortDateString();
+            data_rozp.Text = insurance.DateOfPurchase;
+            data_zako.Text = insurance.DateOfExpiry;
             koszt1.Text = insurance.Cost.ToString();
         }
 
@@ -36,8 +36,8 @@ namespace CostManagement
         {
             if (koszt1.Text != "" && data_rozp.Text != "" && data_zako.Text != "")
             {
-                insurance.DateOfPurchase = Convert.ToDateTime(data_rozp.Text);
-                insurance.DateOfExpiry = Convert.ToDateTime(data_zako.Text);
+                insurance.DateOfPurchase = data_rozp.Text;
+                insurance.DateOfExpiry = data_zako.Text;
                 insurance.Cost = Convert.ToDouble(koszt1.Text);
                 DatabaseWriter myWriter = new DatabaseWriter();
                 myWriter.AddToDatabase(insurance);

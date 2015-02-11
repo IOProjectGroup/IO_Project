@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.SqlServer;
+using Microsoft.SqlServer.Management.Sdk.Sfc;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;   
 
 namespace CostManagement
 {
@@ -26,7 +30,18 @@ namespace CostManagement
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if(FileNameTextBox.Text != "")
+            {
+                ServerConnection con = new ServerConnection("(localdb)\\Projects");
+                Server server = new Server(con);
+                Restore destination = new Restore();
+                destination.Action = RestoreActionType.Database;
+                destination.Database = "Database";
+                BackupDeviceItem source = new BackupDeviceItem(FileNameTextBox.Text, DeviceType.File);
+                destination.Devices.Add(source);
+                destination.ReplaceDatabase = true;
+                destination.SqlRestore(server);
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -38,7 +53,7 @@ namespace CostManagement
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-            dlg.Filter = "Excel files (*.xls; *.xlsx)|*.xls; *.xlsx|All files (*.*)|*.*";
+            dlg.Filter = "Backup files (*.sql)|*.sql;|All files (*.*)|*.*";
 
             Nullable<bool> result = dlg.ShowDialog();
 

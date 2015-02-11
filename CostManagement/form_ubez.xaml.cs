@@ -32,8 +32,8 @@ namespace CostManagement
         {
             if (koszt1.Text != "" && data_rozp.Text != "" && data_zako.Text != "")
             {
-                insurance.DateOfPurchase = Convert.ToDateTime(data_rozp.Text);
-                insurance.DateOfExpiry = Convert.ToDateTime(data_zako.Text);
+                insurance.DateOfPurchase = data_rozp.Text;
+                insurance.DateOfExpiry = data_zako.Text;
                 insurance.Cost = Convert.ToDouble(koszt1.Text);
                 DatabaseWriter myWriter = new DatabaseWriter();
                 myWriter.AddToDatabase(insurance);

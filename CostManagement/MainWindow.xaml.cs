@@ -14,6 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DatabaseSupport;
 using DatabaseSupport.TableClasses;
+using Microsoft.SqlServer;
+using Microsoft.SqlServer.Management.Sdk.Sfc;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;   
 
 namespace CostManagement
 {
@@ -27,7 +31,7 @@ namespace CostManagement
             InitializeComponent();
             reloadDatagrids();
         }
-
+        
         private void ReloadDrivers(object sender, RoutedEventArgs e)
         {
             DatabaseReader myReader = new DatabaseReader();
@@ -200,9 +204,15 @@ namespace CostManagement
 
         private void BackUpDatabase(object sender, RoutedEventArgs e)
         {
-            /*
-             *  back up baz ydanych
-             */
+            ServerConnection con = new ServerConnection("(localdb)\\Projects");
+            Server server = new Server(con);
+            Backup source = new Backup();
+            source.Action = BackupActionType.Database;
+            source.Database = "Database";
+            BackupDeviceItem destination = new BackupDeviceItem("D:\\Studia\\V semestr\\IO\\Backup.sql", DeviceType.File);
+            source.Devices.Add(destination);
+            source.SqlBackup(server);
+            con.Disconnect();
         }
 
         private void RestoreDatabase(object sender, RoutedEventArgs e)
@@ -297,7 +307,7 @@ namespace CostManagement
                 o.Show();
             }
         }
-
+        
         public void reloadDatagrids()
         {
             DatabaseReader myReader = new DatabaseReader();

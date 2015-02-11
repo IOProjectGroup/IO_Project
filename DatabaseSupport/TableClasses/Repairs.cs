@@ -24,10 +24,10 @@ namespace DatabaseSupport.TableClasses
         }
         private DateTime dateOfRepair;
 
-        public virtual DateTime DateOfRepair
+        public virtual String DateOfRepair
         {
-            get { return dateOfRepair; }
-            set { dateOfRepair = value; }
+            get { return dateOfRepair.ToShortDateString(); }
+            set { dateOfRepair = Convert.ToDateTime(value); }
         }
         private String specification;
 

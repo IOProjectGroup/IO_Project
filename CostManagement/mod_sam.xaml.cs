@@ -31,8 +31,8 @@ namespace CostManagement
             Brand.Text = car.Brand;
             Model.Text = car.Model;
             RegNumber.Text = car.RegistrationNumber;
-            DateOfProduction.Text = car.DateOfProduction.ToShortDateString();
-            DateOfPurchase.Text = car.DateOfPurchase.ToShortDateString();
+            DateOfProduction.Text = car.DateOfProduction;
+            DateOfPurchase.Text = car.DateOfPurchase;
             Cost.Text = car.Cost.ToString();
         }
 
@@ -43,8 +43,8 @@ namespace CostManagement
                 car.Brand = Brand.Text;
                 car.Model = Model.Text;
                 car.RegistrationNumber = RegNumber.Text;
-                car.DateOfProduction = Convert.ToDateTime(DateOfProduction.Text);
-                car.DateOfPurchase = Convert.ToDateTime(DateOfPurchase.Text);
+                car.DateOfProduction = DateOfProduction.Text;
+                car.DateOfPurchase = DateOfPurchase.Text;
                 car.Cost = Convert.ToDecimal(Cost.Text);
 
                 DatabaseWriter myWriter = new DatabaseWriter();

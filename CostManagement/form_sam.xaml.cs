@@ -34,8 +34,8 @@ namespace CostManagement
                 car.Brand = marka.Text;
                 car.Model = model.Text;
                 car.RegistrationNumber = rejestr.Text;
-                car.DateOfProduction = Convert.ToDateTime(data_prod.Text);
-                car.DateOfPurchase = Convert.ToDateTime(data_zak.Text);
+                car.DateOfProduction = data_prod.Text;
+                car.DateOfPurchase = data_zak.Text;
                 car.Cost = Convert.ToDecimal(koszt.Text);
 
                 DatabaseWriter myWriter = new DatabaseWriter();

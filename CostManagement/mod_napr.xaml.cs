@@ -27,7 +27,7 @@ namespace CostManagement
             InitializeComponent();
             this.repair = repair;
 
-            data_napr.Text = repair.DateOfRepair.ToShortDateString();
+            data_napr.Text = repair.DateOfRepair;
             koszt3.Text = repair.Cost.ToString();
             spec.Text = repair.Specification;
         }
@@ -36,7 +36,7 @@ namespace CostManagement
         {
             if (koszt3.Text != "" && data_napr.Text != "" && spec.Text != "")
             {
-                repair.DateOfRepair = Convert.ToDateTime(data_napr.Text);
+                repair.DateOfRepair = data_napr.Text;
                 repair.Specification = spec.Text;
                 repair.Cost = Convert.ToDouble(koszt3.Text);
                 DatabaseWriter myWriter = new DatabaseWriter();

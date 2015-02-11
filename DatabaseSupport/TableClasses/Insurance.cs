@@ -24,17 +24,17 @@ namespace DatabaseSupport.TableClasses
         }
         private DateTime dateOfPurchase;
 
-        public virtual DateTime DateOfPurchase
+        public virtual String DateOfPurchase
         {
-            get { return dateOfPurchase; }
-            set { dateOfPurchase = value; }
+            get { return dateOfPurchase.ToShortDateString(); }
+            set { dateOfPurchase = Convert.ToDateTime(value); }
         }
         private DateTime dateOfExpiry;
 
-        public virtual DateTime DateOfExpiry
+        public virtual String DateOfExpiry
         {
-            get { return dateOfExpiry; }
-            set { dateOfExpiry = value; }
+            get { return dateOfExpiry.ToShortDateString(); }
+            set { dateOfExpiry = Convert.ToDateTime(value); }
         }
         private Cars cars;
 
